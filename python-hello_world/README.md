@@ -4,3 +4,5 @@
 
 ## 2. Print float
 
+## 3. Print string
+
