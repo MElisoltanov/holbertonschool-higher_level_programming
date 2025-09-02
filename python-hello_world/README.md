@@ -6,3 +6,5 @@
 
 ## 3. Print string
 
+## 4. Play with strings
+
