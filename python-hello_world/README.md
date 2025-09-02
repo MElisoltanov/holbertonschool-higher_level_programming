@@ -12,3 +12,4 @@
 
 ## 6. Create a new sentence
 
+## 7. Easter Egg
