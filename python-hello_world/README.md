@@ -10,3 +10,5 @@
 
 ## 5. Copy - Cut - Paste
 
+## 6. Create a new sentence
+
