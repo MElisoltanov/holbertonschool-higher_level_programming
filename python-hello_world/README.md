@@ -8,3 +8,5 @@
 
 ## 4. Play with strings
 
+## 5. Copy - Cut - Paste
+
