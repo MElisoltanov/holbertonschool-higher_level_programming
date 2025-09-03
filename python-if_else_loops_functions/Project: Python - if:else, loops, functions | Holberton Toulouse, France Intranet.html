@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+    <title>Project: Python - if/else, loops, functions | Holberton Toulouse, France Intranet</title>
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <link rel="stylesheet" href="/assets/application-7eb9b1e48427cd1bd28dbc513b5724dbd9fef87b6f1da03bb757f217b94f7ded.css" media="all" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <meta name="action-cable-url" content="/cable" />
+      <script src="/assets/application-1bc6dd7915d3b62389d2b1e80bd4e9e08c101a17b4117ee518b441b43aa1a5fd.js"></script>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="zSV2mXgzhUYzdRKGxld0QH-Z86hSaJ9POb6uwAGU5-3CS55kd0OmponyVPjvtqLnHRt0vBaJjdPZrEgC7Bo0Cg" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <!-- Select2 -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+      <!-- ChatBot -->
+        <link rel="stylesheet" href="https://clippy.hbtn.io/static/client/css/all.min.css">
+        <script src="https://clippy.hbtn.io/static/client/js/all.min.js"></script>
+      <!-- intro.js for interactive onboarding -->
+        <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css" media="screen" />
+      <!-- React -->
+      <script src="/packs/js/application-a11dd345dbcdb51e5094.js"></script>
+      <link rel="stylesheet" href="/packs/css/application-67dc439c.css" media="screen" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="
+    signed_in
+    env_production
+    
+    "
+    translate="no"
+    class="notranslate"
+    data-theme-suffix=""
+    data-checker-special-theme="">
+      <input type="hidden" id="hbtn-slack-url" value="https://holberton-school-org.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+    <li><a target="_blank" href="https://students-support.hbtn.io/hc"><div class="icon "><i aria-hidden="true" class="fa fa-info-circle "></i></div><div class="visible-xs">Help</div></a></li>
+
+
+    
+    <li><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li><a href="/users/my_reports"><div class="icon "><i aria-hidden="true" class="fa fa-sticky-note-o "></i></div><div class="visible-xs">My reports</div></a></li>
+    <li><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    <li><a href="/dashboards/my_current_reefineries"><div class="icon "><i aria-hidden="true" class="fa fa-commenting-o "></i></div><div class="visible-xs">Mock interviews</div></a></li>
+    <li><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    
+    <li><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li><a href="/user_sandboxes"><div class="icon "><i aria-hidden="true" class="fa fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+      <li><a href="/dashboards/my_officers"><div class="icon "><i aria-hidden="true" class="fa fa-building "></i></div><div class="visible-xs">Officers</div></a></li>
+      <li><a href="/dashboards/my_speakers_of_the_day"><div class="icon "><i aria-hidden="true" class="fa fa-microphone "></i></div><div class="visible-xs">Speakers of the Day</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_5137.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250903%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250903T080603Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4c354a52d2c880f792b3d1012f33d293eceaf4c9b53de62bd183a83acf24de68')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+    <li><a target="_blank" href="https://students-support.hbtn.io/hc"><div class="icon "><i aria-hidden="true" class="fa fa-info-circle "></i></div><div class="visible-xs">Help</div></a></li>
+
+
+    
+    <li><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li><a href="/users/my_reports"><div class="icon "><i aria-hidden="true" class="fa fa-sticky-note-o "></i></div><div class="visible-xs">My reports</div></a></li>
+    <li><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    <li><a href="/dashboards/my_current_reefineries"><div class="icon "><i aria-hidden="true" class="fa fa-commenting-o "></i></div><div class="visible-xs">Mock interviews</div></a></li>
+    <li><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    
+    <li><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li><a href="/user_sandboxes"><div class="icon "><i aria-hidden="true" class="fa fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+      <li><a href="/dashboards/my_officers"><div class="icon "><i aria-hidden="true" class="fa fa-building "></i></div><div class="visible-xs">Officers</div></a></li>
+      <li><a href="/dashboards/my_speakers_of_the_day"><div class="icon "><i aria-hidden="true" class="fa fa-microphone "></i></div><div class="visible-xs">Speakers of the Day</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_5137.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250903%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250903T080603Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4c354a52d2c880f792b3d1012f33d293eceaf4c9b53de62bd183a83acf24de68')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+    <main>
+      <div id="layout-bars">
+        <div class="px-5 py-3" id="student-switch-curriculum">
+  <div class="dropdown d-flex flex-column gap-1">
+    <span class="fs-small text-muted">Curriculum</span>
+    <div aria-haspopup="true" aria-expanded="false" class="align-items-center d-flex gap-3" data-toggle="dropdown" id="student-switch-curriculum-dropdown" role="button">
+      <div class="d-flex flex-column" style="line-height: 16px">
+        <span class="fs-4 fw-600">
+            [C#27]
+          Foundations v2.1 - Part 2
+        </span>
+        <span class="fs-small text-muted">
+          Average: <span class="fw-500">100.0%</span>
+        </span>
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <span style="margin-bottom: -4px">
+          <i aria-hidden="true" class="fa fa-angle-up  fa-fw"></i>
+        </span>
+        <span style="margin-top: -4px">
+          <i aria-hidden="true" class="fa fa-angle-down  fa-fw"></i>
+        </span>
+      </div>
+    </div>
+    <ul aria-labelledby="student-switch-curriculum-dropdown" class="dropdown-menu fs-5">
+        <li>
+          <a class="" href="/curriculums/526/observe/69530">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 1
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">92.88%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/441/observe/69815">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  IBM Certificates - France
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">100.0%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/392/observe/83721">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  HBnB v2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/502/observe/83936">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">100.0%
+                          </span>
+                </span>
+              </div>
+                <span class="fw-600 text-info" style="margin-left: 42px">
+                  <i aria-hidden="true" class="fa fa-check "></i>
+                </span>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/423/observe/84098">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  RNCP 5 - Parcours de préparation
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+    </ul>
+  </div>
+</div>
+
+        
+        
+        
+      </div>
+      <article class="">
+        
+<div class="project row container-max">
+
+    <div class="sm-gap">
+    <div data-react-class="projects/ProjectHeader" data-react-props="{&quot;metadata&quot;:{&quot;level&quot;:&quot;Novice&quot;,&quot;author&quot;:&quot;Guillaume&quot;,&quot;weight&quot;:1,&quot;migrated_to_sasheck&quot;:true,&quot;task_level_review_type&quot;:&quot;Your score will be updated as you progress.&quot;,&quot;correction&quot;:{&quot;released&quot;:false,&quot;requires_manual_correction&quot;:false}},&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:2172,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - if/else, loops, functions&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:2},&quot;slackLink&quot;:null,&quot;tags&quot;:[],&quot;videoRoomLink&quot;:null}" data-react-cache-id="projects/ProjectHeader-0"></div>
+  </div>
+
+
+  <div id="project_id" class="d-none" data-project-id="2172"></div>
+
+
+
+    <div>
+      <ul class="nav nav-pills nav-justified" role="tablist">
+          <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+          <li class=""><a href="#quiz" role="tab" data-toggle="tab">Quiz</a></li>
+      </ul>
+      <div class="tab-content mt-4">
+        <div role="tabpanel" class="tab-pane active" id="description">
+          <div class="panel panel-default position-relative" id="project-description">
+  <a id="btn-scroll-to-tasks" href="#" class="btn btn-primary fixed-button hidden-xs">
+    Go to tasks <i class="ml-1 fa fa-arrow-down"></i>
+  </a>
+  <div class="panel-body text-justify">
+    <p><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet.project.files/holbertonschool-higher-level_programming+/233/code.png" alt="" loading='lazy' style="" /></p>
+
+<h2>Resources</h2>
+
+<p><strong>Read or watch</strong>:</p>
+
+<ul>
+<li><a href="/rltoken/X77zAIll3ePP3gA-eUSiiA" title="More Control Flow Tools" target="_blank">More Control Flow Tools</a> (<em>Read until &ldquo;4.6. Defining Functions&rdquo; included</em>)</li>
+<li><a href="/rltoken/2JgLsB5c9CpN5xkYS9wMKQ" title="IndentationError" target="_blank">IndentationError</a> </li>
+<li><a href="/rltoken/Bt4ISTvUyfB6lFxEoL3NwQ" title="How To Use String Formatters in Python 3" target="_blank">How To Use String Formatters in Python 3</a> </li>
+<li><a href="/rltoken/qwVdwqW4LROXY0CIbWNiAw" title="Learn to Program 2 : Looping" target="_blank">Learn to Program 2 : Looping</a> </li>
+<li><a href="/rltoken/8D5JdrayXbe3ZzPWr335dQ" title="Pycodestyle -- Style Guide for Python Code" target="_blank">Pycodestyle &ndash; Style Guide for Python Code</a> </li>
+</ul>
+
+<p><strong>man or help</strong>:</p>
+
+<ul>
+<li><code>python3</code></li>
+</ul>
+
+<h2>Learning Objectives</h2>
+
+<p>At the end of this project, you are expected to be able to <a href="/rltoken/cpnHPq4-L7SEER4Skw0Cbw" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
+
+<h3>General</h3>
+
+<ul>
+<li>Why indentation is so important in Python</li>
+<li>How to use the <code>if</code>, <code>if ... else</code> statements</li>
+<li>How to use comments</li>
+<li>How to affect values to variables</li>
+<li>How to use the <code>while</code> and <code>for</code> loops</li>
+<li>How to use the <code>break</code> and <code>continues</code> statements</li>
+<li>How to use <code>else</code> clauses on loops</li>
+<li>What does the <code>pass</code> statement do, and when to use it</li>
+<li>How to use <code>range</code></li>
+<li>What is a function and how do you use functions</li>
+<li>What does return a function that does not use any <code>return</code> statement</li>
+<li>Scope of variables</li>
+<li>What&rsquo;s a traceback</li>
+<li>What are the arithmetic operators and how to use them</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<h3>Python Scripts</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.*)</li>
+<li>All your files should end with a new line</li>
+<li>The first line of all your files should be exactly <code>#!/usr/bin/python3</code></li>
+<li>A <code>README.md</code> file, at the root of the folder of the project, is mandatory</li>
+<li>Your code should use the pycodestyle (version 2.7.*)</li>
+<li>All your files must be executable</li>
+<li>The length of your files will be tested using <code>wc</code></li>
+</ul>
+
+<h2>More Info</h2>
+
+<p><em>Note</em>: you do not need to understand lists yet.</p>
+
+  </div>
+</div>
+        </div>
+          <div role="tabpanel" class="tab-pane " id="quiz">
+              <div class="panel panel-default" id="project-quiz-questions-title">
+    <div class="panel-body">
+
+        <div class="alert alert-info">
+          <strong>Great!</strong>
+          You've completed the quiz successfully! Keep going!
+          <span id="quiz_questions_collapse_toggle"></span>
+        </div>
+
+      <section class="quiz_questions_show_container">
+          <div class="quiz_question_item_container" data-role="quiz_question5779" data-position="1">
+            <div class=" clearfix" id="quiz_question-5779">
+
+    <h4 class="quiz_question">
+        
+        Question #0
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>if True:
+    print(&quot;Holberton&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5779">
+                <li class="">
+
+  <input type="radio" name="5779" id="5779-1501132888747" value="1501132888747" data-quiz-answer-id="1501132888747" data-quiz-question-id="5779" disabled="disabled" checked="checked" />
+  <label for="5779-1501132888747"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5779" id="5779-1501132893371" value="1501132893371" data-quiz-answer-id="1501132893371" data-quiz-question-id="5779" disabled="disabled" />
+  <label for="5779-1501132893371"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5780" data-position="2">
+            <div class=" clearfix" id="quiz_question-5780">
+
+    <h4 class="quiz_question">
+        
+        Question #1
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>if 12 == 48/4:
+    print(&quot;Holberton&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5780">
+                <li class="">
+
+  <input type="radio" name="5780" id="5780-1501132898682" value="1501132898682" data-quiz-answer-id="1501132898682" data-quiz-question-id="5780" disabled="disabled" checked="checked" />
+  <label for="5780-1501132898682"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5780" id="5780-1501132901616" value="1501132901616" data-quiz-answer-id="1501132901616" data-quiz-question-id="5780" disabled="disabled" />
+  <label for="5780-1501132901616"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5781" data-position="3">
+            <div class=" clearfix" id="quiz_question-5781">
+
+    <h4 class="quiz_question">
+        
+        Question #2
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>if 12 == 48/4 and False:
+    print(&quot;Holberton&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5781">
+                <li class="">
+
+  <input type="radio" name="5781" id="5781-1501132917643" value="1501132917643" data-quiz-answer-id="1501132917643" data-quiz-question-id="5781" disabled="disabled" />
+  <label for="5781-1501132917643"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5781" id="5781-1501132921249" value="1501132921249" data-quiz-answer-id="1501132921249" data-quiz-question-id="5781" disabled="disabled" checked="checked" />
+  <label for="5781-1501132921249"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5782" data-position="4">
+            <div class=" clearfix" id="quiz_question-5782">
+
+    <h4 class="quiz_question">
+        
+        Question #3
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>if 12 == 48/3 or 12 is 12:
+    print(&quot;Holberton&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5782">
+                <li class="">
+
+  <input type="radio" name="5782" id="5782-1501132925728" value="1501132925728" data-quiz-answer-id="1501132925728" data-quiz-question-id="5782" disabled="disabled" checked="checked" />
+  <label for="5782-1501132925728"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5782" id="5782-1501132932863" value="1501132932863" data-quiz-answer-id="1501132932863" data-quiz-question-id="5782" disabled="disabled" />
+  <label for="5782-1501132932863"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5783" data-position="5">
+            <div class=" clearfix" id="quiz_question-5783">
+
+    <h4 class="quiz_question">
+        
+        Question #4
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>a = 12
+if a &gt; 2:
+    if a % 2 == 0:
+        print(&quot;Holberton&quot;)
+    else:
+        print(&quot;C is fun&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5783">
+                <li class="">
+
+  <input type="radio" name="5783" id="5783-1501132946617" value="1501132946617" data-quiz-answer-id="1501132946617" data-quiz-question-id="5783" disabled="disabled" checked="checked" />
+  <label for="5783-1501132946617"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5783" id="5783-1501132954301" value="1501132954301" data-quiz-answer-id="1501132954301" data-quiz-question-id="5783" disabled="disabled" />
+  <label for="5783-1501132954301"><p>C is fun</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5783" id="5783-1501132957668" value="1501132957668" data-quiz-answer-id="1501132957668" data-quiz-question-id="5783" disabled="disabled" />
+  <label for="5783-1501132957668"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5784" data-position="6">
+            <div class=" clearfix" id="quiz_question-5784">
+
+    <h4 class="quiz_question">
+        
+        Question #5
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>a = 12
+if a &lt; 2:
+    print(&quot;Holberton&quot;)
+elif a % 2 == 0:
+    print(&quot;C is fun&quot;)
+else:
+    print(&quot;School&quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5784">
+                <li class="">
+
+  <input type="radio" name="5784" id="5784-1501132969848" value="1501132969848" data-quiz-answer-id="1501132969848" data-quiz-question-id="5784" disabled="disabled" />
+  <label for="5784-1501132969848"><p>Holberton</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5784" id="5784-1501132975592" value="1501132975592" data-quiz-answer-id="1501132975592" data-quiz-question-id="5784" disabled="disabled" checked="checked" />
+  <label for="5784-1501132975592"><p>C is fun</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5784" id="5784-1501132984138" value="1501132984138" data-quiz-answer-id="1501132984138" data-quiz-question-id="5784" disabled="disabled" />
+  <label for="5784-1501132984138"><p>School</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5785" data-position="7">
+            <div class=" clearfix" id="quiz_question-5785">
+
+    <h4 class="quiz_question">
+        
+        Question #6
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>for i in range(4):
+    print(i, end=&quot; &quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5785">
+                <li class="">
+
+  <input type="radio" name="5785" id="5785-1501132988440" value="1501132988440" data-quiz-answer-id="1501132988440" data-quiz-question-id="5785" disabled="disabled" />
+  <label for="5785-1501132988440"><p>1 2 3 4</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5785" id="5785-1501133031278" value="1501133031278" data-quiz-answer-id="1501133031278" data-quiz-question-id="5785" disabled="disabled" />
+  <label for="5785-1501133031278"><p>1 2 3</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5785" id="5785-1501133037099" value="1501133037099" data-quiz-answer-id="1501133037099" data-quiz-question-id="5785" disabled="disabled" checked="checked" />
+  <label for="5785-1501133037099"><p>0 1 2 3</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5785" id="5785-1501133045173" value="1501133045173" data-quiz-answer-id="1501133045173" data-quiz-question-id="5785" disabled="disabled" />
+  <label for="5785-1501133045173"><p>0 1 2 3 4</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5786" data-position="8">
+            <div class=" clearfix" id="quiz_question-5786">
+
+    <h4 class="quiz_question">
+        
+        Question #7
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>for i in range(2, 4):
+    print(i, end=&quot; &quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5786">
+                <li class="">
+
+  <input type="radio" name="5786" id="5786-1501133060222" value="1501133060222" data-quiz-answer-id="1501133060222" data-quiz-question-id="5786" disabled="disabled" />
+  <label for="5786-1501133060222"><p>2 4</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5786" id="5786-1501133066538" value="1501133066538" data-quiz-answer-id="1501133066538" data-quiz-question-id="5786" disabled="disabled" checked="checked" />
+  <label for="5786-1501133066538"><p>2 3</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5786" id="5786-1501133073171" value="1501133073171" data-quiz-answer-id="1501133073171" data-quiz-question-id="5786" disabled="disabled" />
+  <label for="5786-1501133073171"><p>2 3 4</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5786" id="5786-1501133076573" value="1501133076573" data-quiz-answer-id="1501133076573" data-quiz-question-id="5786" disabled="disabled" />
+  <label for="5786-1501133076573"><p>3 4</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question5787" data-position="9">
+            <div class=" clearfix" id="quiz_question-5787">
+
+    <h4 class="quiz_question">
+        
+        Question #8
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What do these lines print?</p>
+
+<pre><code>for i in range(2, 10, 2):
+    print(i, end=&quot; &quot;)
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="5787">
+                <li class="">
+
+  <input type="radio" name="5787" id="5787-1501133094054" value="1501133094054" data-quiz-answer-id="1501133094054" data-quiz-question-id="5787" disabled="disabled" />
+  <label for="5787-1501133094054"><p>2 3 4 5 6 7 8 9 10</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5787" id="5787-1501133102827" value="1501133102827" data-quiz-answer-id="1501133102827" data-quiz-question-id="5787" disabled="disabled" />
+  <label for="5787-1501133102827"><p>2 3 4 5 6 7 8 9</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5787" id="5787-1501133106296" value="1501133106296" data-quiz-answer-id="1501133106296" data-quiz-question-id="5787" disabled="disabled" />
+  <label for="5787-1501133106296"><p>4 6 8 10 12 14 16 18</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="5787" id="5787-1501133121968" value="1501133121968" data-quiz-answer-id="1501133121968" data-quiz-question-id="5787" disabled="disabled" checked="checked" />
+  <label for="5787-1501133121968"><p>2 4 6 8</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+
+      </section>
+    </div>
+  </div>
+
+          </div>
+      </div>
+    </div>
+
+        <h2 id="task-container" class="gap">Tasks</h2>
+  
+  <div class="col-sm-12 col-md-12 col-lg-8 xol-xl-9">
+      <div data-role="task20088" data-position="1" id="task-num-0">
+        <div class="panel panel-default task-card " id="task-20088">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. Positive anything is better than negative nothing
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>This program will assign a random signed number to the variable <code>number</code> each time it is executed. Complete the source code in order to print whether the number stored in the variable <code>number</code> is positive or negative.</p>
+
+<ul>
+<li>You can find the source code <a href="/rltoken/aBRwd0uo_aZMPK2CBG1syg" title="here" target="_blank">here</a></li>
+<li>The variable <code>number</code> will store a different value every time you will run this program</li>
+<li>You don&rsquo;t have to understand what <code>import</code>, <code>random. randint</code> do. Please do not touch this code</li>
+<li>The output of the program should be:
+
+<ul>
+<li>The number, followed by
+
+<ul>
+<li>if the number is greater than 0: <code>is positive</code></li>
+<li>if the number is 0: <code>is zero</code></li>
+<li>if the number is less than 0: <code>is negative</code></li>
+</ul></li>
+<li>followed by a new line</li>
+</ul></li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+-4 is negative
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+0 is zero
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+-3 is negative
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+-10 is negative
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+10 is positive
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+-5 is negative
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+6 is positive
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+7 is positive
+guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+5 is positive
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>0-positive_or_negative.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20088" data-batch-id="1063" data-toggle="modal" data-target="#task-20088-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20088-users-done-modal" data-task-id="20088" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "0. Positive anything is better than negative nothing"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20088-score-info-score">0</span>/15
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20089" data-position="2" id="task-num-1">
+        <div class="panel panel-default task-card " id="task-20089">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. The last digit
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>This program will assign a random signed number to the variable <code>number</code> each time it is executed. Complete the source code in order to print the last digit of the number stored in the variable <code>number</code>.</p>
+
+<ul>
+<li>You can find the source code <a href="/rltoken/UdohgX1ToNOVf4cAa3KJxA" title="here" target="_blank">here</a></li>
+<li>The variable <code>number</code> will store a different value every time you will run this program</li>
+<li>You don&rsquo;t have to understand what <code>import</code>, <code>random.randint</code> do. <strong>Please do not touch this code</strong>. This line should not change: <code>number = random.randint(-10000, 10000)</code></li>
+<li>The output of the program should be:
+
+<ul>
+<li>The string <code>Last digit of</code>, followed by</li>
+<li>the number, followed by</li>
+<li>the string <code>is</code>, followed by the last digit of <code>number</code>, followed by
+
+<ul>
+<li>if the last digit is greater than 5: the string <code>and is greater than 5</code></li>
+<li>if the last digit is 0: the string <code>and is 0</code></li>
+<li>if the last digit is less than 6 and not 0: the string <code>and is less than 6 and not 0</code></li>
+</ul></li>
+<li>followed by a new line</li>
+</ul></li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 4205 is 5 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of -626 is -6 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 1144 is 4 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of -9200 is 0 and is 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 5247 is 7 and is greater than 5
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of -9318 is -8 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 3369 is 9 and is greater than 5
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of -5224 is -4 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of -4485 is -5 and is less than 6 and not 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 3850 is 0 and is 0
+guillaume@ubuntu:~/$ ./1-last_digit.py
+Last digit of 5169 is 9 and is greater than 5
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>1-last_digit.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20089" data-batch-id="1063" data-toggle="modal" data-target="#task-20089-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20089-users-done-modal" data-task-id="20089" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "1. The last digit"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20089-score-info-score">0</span>/15
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20090" data-position="3" id="task-num-2">
+        <div class="panel panel-default task-card " id="task-20090">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. I sometimes suffer from insomnia. And when I can&#39;t fall asleep, I play what I call the alphabet game
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.</p>
+
+<ul>
+<li>Use only one <code>print</code> function with string format</li>
+<li>Use only one loop in your code</li>
+<li>You are not allowed to store characters in a variable</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./2-print_alphabet.py
+abcdefghijklmnopqrstuvwxyzguillaume@ubuntu:~/$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>2-print_alphabet.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20090" data-batch-id="1063" data-toggle="modal" data-target="#task-20090-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20090-users-done-modal" data-task-id="20090" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "2. I sometimes suffer from insomnia. And when I can&#39;t fall asleep, I play what I call the alphabet game"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20090-score-info-score">0</span>/6
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20091" data-position="4" id="task-num-3">
+        <div class="panel panel-default task-card " id="task-20091">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. When I was having that alphabet soup, I never thought that it would pay off
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.</p>
+
+<ul>
+<li>Print all the letters except <code>q</code> and <code>e</code></li>
+<li>You can only use one <code>print</code> function with string format</li>
+<li>You can only use one loop in your code</li>
+<li>You are not allowed to store characters in a variable</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./3-print_alphabt.py
+abcdfghijklmnoprstuvwxyzguillaume@ubuntu:~/$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>3-print_alphabt.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20091" data-batch-id="1063" data-toggle="modal" data-target="#task-20091-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20091-users-done-modal" data-task-id="20091" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "3. When I was having that alphabet soup, I never thought that it would pay off"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20091-score-info-score">0</span>/6
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20092" data-position="5" id="task-num-4">
+        <div class="panel panel-default task-card " id="task-20092">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      4. Hexadecimal printing
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a program that prints all numbers from <code>0</code> to <code>98</code> in decimal and in hexadecimal (as in the following example)</p>
+
+<ul>
+<li>You can only use one <code>print</code> function with string format</li>
+<li>You can only use one loop in your code</li>
+<li>You are not allowed to store numbers or strings in a variable</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./4-print_hexa.py
+0 = 0x0
+1 = 0x1
+2 = 0x2
+3 = 0x3
+4 = 0x4
+5 = 0x5
+6 = 0x6
+7 = 0x7
+8 = 0x8
+9 = 0x9
+10 = 0xa
+11 = 0xb
+12 = 0xc
+13 = 0xd
+14 = 0xe
+15 = 0xf
+16 = 0x10
+17 = 0x11
+18 = 0x12
+...
+96 = 0x60
+97 = 0x61
+98 = 0x62
+guillaume@ubuntu:~/$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>4-print_hexa.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20092" data-batch-id="1063" data-toggle="modal" data-target="#task-20092-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20092-users-done-modal" data-task-id="20092" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "4. Hexadecimal printing"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20092-score-info-score">0</span>/6
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20094" data-position="6" id="task-num-5">
+        <div class="panel panel-default task-card " id="task-20094">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      5. 00...99
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a program that prints numbers from <code>0</code> to <code>99</code>.</p>
+
+<ul>
+<li>Numbers must be separated by <code>,</code>, followed by a space</li>
+<li>Numbers should be printed in ascending order, with two digits</li>
+<li>The last number should be followed by a new line</li>
+<li>You can only use no more than 2 <code>print</code> functions with string format</li>
+<li>You can only use one loop in your code</li>
+<li>You are not allowed to store numbers or strings in a variable</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./5-print_comb2.py
+00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>5-print_comb2.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20094" data-batch-id="1063" data-toggle="modal" data-target="#task-20094-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20094-users-done-modal" data-task-id="20094" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "5. 00...99"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20094-score-info-score">0</span>/6
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20095" data-position="7" id="task-num-6">
+        <div class="panel panel-default task-card " id="task-20095">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      6. Inventing is a combination of brains and materials. The more brains you use, the less material you need
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a program that prints all possible different combinations of two digits.</p>
+
+<ul>
+<li>Numbers must be separated by <code>,</code>, followed by a space</li>
+<li>The two digits must be different</li>
+<li><code>01</code> and <code>10</code> are considered the same combination of the two digits <code>0</code> and <code>1</code></li>
+<li>Print only the smallest combination of two digits</li>
+<li>Numbers should be printed in ascending order, with two digits</li>
+<li>The last number should be followed by a new line</li>
+<li>You can only use no more than 3 <code>print</code> functions with string format</li>
+<li>You can only use no more than 2 loops in your code</li>
+<li>You are not allowed to store numbers or strings in a variable</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/$ ./6-print_comb3.py
+01, 02, 03, 04, 05, 06, 07, 08, 09, 12, 13, 14, 15, 16, 17, 18, 19, 23, 24, 25, 26, 27, 28, 29, 34, 35, 36, 37, 38, 39, 45, 46, 47, 48, 49, 56, 57, 58, 59, 67, 68, 69, 78, 79, 89
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>6-print_comb3.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20095" data-batch-id="1063" data-toggle="modal" data-target="#task-20095-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20095-users-done-modal" data-task-id="20095" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "6. Inventing is a combination of brains and materials. The more brains you use, the less material you need"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20095-score-info-score">0</span>/6
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20109" data-position="8" id="task-num-7">
+        <div class="panel panel-default task-card " id="task-20109">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      7. islower
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that checks for lowercase character. </p>
+
+<ul>
+<li>Prototype: <code>def islower(c):</code></li>
+<li>Returns <code>True</code> if <code>c</code> is lowercase</li>
+<li>Returns <code>False</code> otherwise</li>
+<li>You are not allowed to import any module</li>
+<li>You are not allowed to use <code>str.upper()</code> and <code>str.isupper()</code></li>
+<li><a href="/rltoken/4uY7QIrrXO3MAHjGNo_T7A" title="Tips: ord()" target="_blank">Tips: ord()</a></li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 7-main.py
+#!/usr/bin/env python3
+islower = __import__(&#39;7-islower&#39;).islower
+
+print(&quot;a is {}&quot;.format(&quot;lower&quot; if islower(&quot;a&quot;) else &quot;upper&quot;))
+print(&quot;H is {}&quot;.format(&quot;lower&quot; if islower(&quot;H&quot;) else &quot;upper&quot;))
+print(&quot;A is {}&quot;.format(&quot;lower&quot; if islower(&quot;A&quot;) else &quot;upper&quot;))
+print(&quot;3 is {}&quot;.format(&quot;lower&quot; if islower(&quot;3&quot;) else &quot;upper&quot;))
+print(&quot;g is {}&quot;.format(&quot;lower&quot; if islower(&quot;g&quot;) else &quot;upper&quot;))
+
+guillaume@ubuntu:~/$ ./7-main.py
+a is lower
+H is upper
+A is upper
+3 is upper
+g is lower
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>7-islower.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20109" data-batch-id="1063" data-toggle="modal" data-target="#task-20109-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20109-users-done-modal" data-task-id="20109" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "7. islower"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20109-score-info-score">0</span>/17
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20096" data-position="9" id="task-num-8">
+        <div class="panel panel-default task-card " id="task-20096">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      8. To uppercase
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that prints a string in uppercase followed by a new line.</p>
+
+<ul>
+<li>Prototype: <code>def uppercase(str):</code></li>
+<li>You can only use no more than 2 <code>print</code> functions with string format</li>
+<li>You can only use one loop in your code</li>
+<li>You are not allowed to import any module</li>
+<li>You are not allowed to use <code>str.upper()</code> and <code>str.isupper()</code></li>
+<li><a href="/rltoken/4uY7QIrrXO3MAHjGNo_T7A" title="Tips: ord()" target="_blank">Tips: ord()</a></li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 8-main.py
+#!/usr/bin/env python3
+uppercase = __import__(&#39;8-uppercase&#39;).uppercase
+
+uppercase(&quot;best&quot;)
+uppercase(&quot;Best School 98 Battery street&quot;)
+
+guillaume@ubuntu:~/$ ./8-main.py
+BEST
+BEST SCHOOL 98 BATTERY STREET
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>8-uppercase.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20096" data-batch-id="1063" data-toggle="modal" data-target="#task-20096-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20096-users-done-modal" data-task-id="20096" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "8. To uppercase"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20096-score-info-score">0</span>/17
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20098" data-position="10" id="task-num-9">
+        <div class="panel panel-default task-card " id="task-20098">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      9. There are only 3 colors, 10 digits, and 7 notes; it&#39;s what we do with them that&#39;s important
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that prints the last digit of a number.</p>
+
+<ul>
+<li>Prototype: <code>def print_last_digit(number):</code></li>
+<li>Returns the value of the last digit</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 9-main.py
+#!/usr/bin/env python3
+print_last_digit = __import__(&#39;9-print_last_digit&#39;).print_last_digit
+
+print_last_digit(98)
+print_last_digit(0)
+r = print_last_digit(-1024)
+print(r)
+
+guillaume@ubuntu:~/$ ./9-main.py
+8044
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>9-print_last_digit.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20098" data-batch-id="1063" data-toggle="modal" data-target="#task-20098-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20098-users-done-modal" data-task-id="20098" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "9. There are only 3 colors, 10 digits, and 7 notes; it&#39;s what we do with them that&#39;s important"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20098-score-info-score">0</span>/16
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20099" data-position="11" id="task-num-10">
+        <div class="panel panel-default task-card " id="task-20099">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      10. a + b
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that adds two integers and returns the result.</p>
+
+<ul>
+<li>Prototype: <code>def add(a, b):</code></li>
+<li>Returns the value of <code>a + b</code></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 10-main.py
+#!/usr/bin/env python3
+add = __import__(&#39;10-add&#39;).add
+
+print(add(1, 2))
+print(add(98, 0))
+print(add(100, -2))
+
+guillaume@ubuntu:~/$ ./10-main.py
+3
+98
+98
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>10-add.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20099" data-batch-id="1063" data-toggle="modal" data-target="#task-20099-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20099-users-done-modal" data-task-id="20099" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "10. a + b"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20099-score-info-score">0</span>/16
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20100" data-position="12" id="task-num-11">
+        <div class="panel panel-default task-card " id="task-20100">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      11. a ^ b
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that computes <code>a</code> to the power of <code>b</code> and return the value.</p>
+
+<ul>
+<li>Prototype: <code>def pow(a, b):</code></li>
+<li>Returns the value of <code>a ^ b</code></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 11-main.py
+#!/usr/bin/env python3
+pow = __import__(&#39;11-pow&#39;).pow
+
+print(pow(2, 2))
+print(pow(98, 2))
+print(pow(98, 0))
+print(pow(100, -2))
+print(pow(-4, 5))
+
+guillaume@ubuntu:~/$ ./11-main.py
+4
+9604
+1
+0.0001
+-1024
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>11-pow.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20100" data-batch-id="1063" data-toggle="modal" data-target="#task-20100-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20100-users-done-modal" data-task-id="20100" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "11. a ^ b"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20100-score-info-score">0</span>/15
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div data-role="task20101" data-position="13" id="task-num-12">
+        <div class="panel panel-default task-card " id="task-20101">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      12. Fizz Buzz
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a function that prints the numbers from 1 to 100 separated by a space. </p>
+
+<ul>
+<li>For multiples of three print <code>Fizz</code> instead of the number and for multiples of five print <code>Buzz</code>. </li>
+<li>For numbers which are multiples of both three and five print <code>FizzBuzz</code>.</li>
+<li>Prototype: <code>def fizzbuzz():</code></li>
+<li>Each element should be followed by a space</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<p>You don&rsquo;t need to understand <code>__import__</code></p>
+
+<pre><code>guillaume@ubuntu:~/$ cat 12-main.py
+#!/usr/bin/env python3
+fizzbuzz = __import__(&#39;12-fizzbuzz&#39;).fizzbuzz
+
+fizzbuzz()
+print(&quot;&quot;)
+
+guillaume@ubuntu:~/$ ./12-main.py | cat -e
+1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz 31 32 Fizz 34 Buzz Fizz 37 38 Fizz Buzz 41 Fizz 43 44 FizzBuzz 46 47 Fizz 49 Buzz Fizz 52 53 Fizz Buzz 56 Fizz 58 59 FizzBuzz 61 62 Fizz 64 Buzz Fizz 67 68 Fizz Buzz 71 Fizz 73 74 FizzBuzz 76 77 Fizz 79 Buzz Fizz 82 83 Fizz Buzz 86 Fizz 88 89 FizzBuzz 91 92 Fizz 94 Buzz Fizz 97 98 Fizz Buzz $
+guillaume@ubuntu:~/$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-if_else_loops_functions</code></li>
+            <li>File: <code>12-fizzbuzz.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="20101" data-batch-id="1063" data-toggle="modal" data-target="#task-20101-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-20101-users-done-modal" data-task-id="20101" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "12. Fizz Buzz"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sandboxes-modal"><i aria-hidden="true" class="fa fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-20101-score-info-score">0</span>/11
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+      </div>
+
+    <p class="mb-4">
+      <a class="btn btn-primary btn-block" data-confirm="Are you sure? Make sure you focused on the mandatory tasks first" href="/projects/2172/unlock_optionals">Done with the mandatory tasks? Unlock 2 advanced tasks now!</a>
+    </p>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Hello, World" class="btn btn-primary" role="button" href="/projects/2170">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517731/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=o0yUhypdDRPBytQ8wooAm3YMG4OMk9aoxHkmysdZVSasInx6JS0u83tNkkLra9Y8FI6cl8hyxDQka8AIKteGwQ
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-sm-12 col-md-12 hidden-lg">
+        <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;line&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517731/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517731/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;lyq-W_qZywEzhB7-4lSSWHETdxagGoM9a4voRbuhFOKYRFam9eno4YkDWIDLtUT_E5HwAuT7kaGLmQ6HVi_HBQ&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: Python - import \u0026 modules&quot;,&quot;uri&quot;:&quot;/projects/2175&quot;},&quot;fetchURI&quot;:&quot;/projects/2172/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:20088,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20089,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20090,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20091,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20092,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20094,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20095,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20109,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:17,&quot;score&quot;:0}},{&quot;id&quot;:20096,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:17,&quot;score&quot;:0}},{&quot;id&quot;:20098,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:16,&quot;score&quot;:0}},{&quot;id&quot;:20099,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:16,&quot;score&quot;:0}},{&quot;id&quot;:20100,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20101,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:11,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:2172,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - if/else, loops, functions&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:2},&quot;skipURI&quot;:&quot;/corrections/1517731/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+    </div>
+
+  <div class="col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md sticky-nav">
+          <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;column&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517731/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517731/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;ZSPEBifjGxmuXDZv8lDdDKiYdqvsADCcNZR1b-8lHFpqTSz7KJM4-RTbcBHbsQuryhrxv6jhIgDVhpOtAqvPvQ&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: Python - import \u0026 modules&quot;,&quot;uri&quot;:&quot;/projects/2175&quot;},&quot;fetchURI&quot;:&quot;/projects/2172/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:20088,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20089,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20090,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20091,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20092,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20094,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20095,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:6,&quot;score&quot;:0}},{&quot;id&quot;:20109,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:17,&quot;score&quot;:0}},{&quot;id&quot;:20096,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:17,&quot;score&quot;:0}},{&quot;id&quot;:20098,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:16,&quot;score&quot;:0}},{&quot;id&quot;:20099,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:16,&quot;score&quot;:0}},{&quot;id&quot;:20100,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:15,&quot;score&quot;:0}},{&quot;id&quot;:20101,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:11,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:2172,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - if/else, loops, functions&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:2},&quot;skipURI&quot;:&quot;/corrections/1517731/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+
+    <div class="panel panel-default task-card " id="task-18584">
+      <span id="user_id" data-id="2303"></span>
+      <div class="panel-heading panel-heading-actions">
+        <h3 class="panel-title">
+          Tasks list
+        </h3>
+      </div>
+      <div class="panel-body task-list">
+          <ul class="nav nav-pills nav-justified" role="tablist">
+              <li class="active"><a href="#mandatory" role="tab" data-toggle="tab">Mandatory</a></li>
+              <li><a href="#advanced" role="tab" data-toggle="tab">Advanced</a></li>
+          </ul>
+          <div class="tab-content mt-4">
+            <div role="tabpanel" class="tab-pane active" id="mandatory">
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="0" id="heading-0">
+                    <div class="task-title-list">0. <code>Positive anything is better than negative nothing</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20088'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="1" id="heading-1">
+                    <div class="task-title-list">1. <code>The last digit</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20089'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="2" id="heading-2">
+                    <div class="task-title-list">2. <code>I sometimes suffer from insomnia. And when I can&#39;t fall asleep, I play what I call the alphabet game</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20090'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="3" id="heading-3">
+                    <div class="task-title-list">3. <code>When I was having that alphabet soup, I never thought that it would pay off</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20091'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="4" id="heading-4">
+                    <div class="task-title-list">4. <code>Hexadecimal printing</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20092'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="5" id="heading-5">
+                    <div class="task-title-list">5. <code>00...99</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20094'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="6" id="heading-6">
+                    <div class="task-title-list">6. <code>Inventing is a combination of brains and materials. The more brains you use, the less material you need</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20095'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="7" id="heading-7">
+                    <div class="task-title-list">7. <code>islower</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20109'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="8" id="heading-8">
+                    <div class="task-title-list">8. <code>To uppercase</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20096'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="9" id="heading-9">
+                    <div class="task-title-list">9. <code>There are only 3 colors, 10 digits, and 7 notes; it&#39;s what we do with them that&#39;s important</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20098'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="10" id="heading-10">
+                    <div class="task-title-list">10. <code>a + b</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20099'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="11" id="heading-11">
+                    <div class="task-title-list">11. <code>a ^ b</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20100'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="12" id="heading-12">
+                    <div class="task-title-list">12. <code>Fizz Buzz</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='20101'></strong>
+                  </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="advanced">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="/assets/javascripts/application/custom/project_tasks.js"></script>
+
+
+        <div class="modal fade" id="container-specs-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandbox</h4></div><div class="modal-body"><div data-react-class="user_containers/ContainerSpecs" data-react-props="{&quot;containerModelName&quot;:&quot;Sandbox&quot;,&quot;containerSpecs&quot;:[{&quot;description&quot;:&quot;\u003cp\u003eBasic Ubuntu 20.04, with vim, emacs, curl, wget and all needed for Holberton Foundations\u003c/p\u003e\n&quot;,&quot;id&quot;:39,&quot;name&quot;:&quot;Ubuntu 20.04&quot;,&quot;online&quot;:true}],&quot;containersLimit&quot;:3,&quot;csrfToken&quot;:&quot;WgDyd85nsXFvltoqFe5Dp3Hovds5_A82AHn1MDa04QNVbhqKwReSkdURnFQ8D5UAE2o6z30dHargaxPy2zoy5A&quot;,&quot;startStatusURI&quot;:&quot;/user_containers/start_status.json&quot;,&quot;startURI&quot;:&quot;/user_containers/start.json&quot;}" data-react-cache-id="user_containers/ContainerSpecs-0"></div></div></div></div></div>
+      
+        <div class="modal fade" id="sandboxes-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandboxes</h4></div><div class="modal-body"><div data-react-class="user_sandboxes/Sandboxes" data-react-props="{&quot;images&quot;:[{&quot;id&quot;:130,&quot;name&quot;:&quot;Ubuntu 22.04 - Java&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:17,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:14,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Europe (Paris)&quot;},{&quot;id&quot;:18,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Asia Pacific (Sydney)&quot;},{&quot;id&quot;:16,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;US East (N. Virginia)\t&quot;},{&quot;id&quot;:128,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;},{&quot;id&quot;:129,&quot;name&quot;:&quot;Ubuntu 18.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;}],&quot;sandboxesUri&quot;:&quot;/user_sandboxes&quot;,&quot;csrfToken&quot;:&quot;7woXmp9cy3LepW5Gm5zz_GtMJn0XdZjxnie5cWykNDzgZP9nkCzokmQiKDiyfSVbCc6haVOUim1-NV-zgSrn2w&quot;,&quot;maxNumberOfContainers&quot;:2}" data-react-cache-id="user_sandboxes/Sandboxes-0"></div></div></div></div></div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Hello, World" class="btn btn-primary" role="button" href="/projects/2170">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517731/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=FGITjOOhLmyaNM0DsySeqCc661Ip3AU-2IDSzjEiJsUbDPtx7NENjCCzi32axUgPRbhsRm09F6I4kjQM3Kz1Ig
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<script src="/assets/javascripts/applications/custom/project.js"></script>
+      </article>
+    </main>
+      <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create',
+            'UA-67152800-6',
+            'auto', {
+              userId: '11468'
+            }
+          );
+
+        ga('send', 'pageview');
+
+        $(document).ready(function() {
+          ga(function(tracker) {
+            var clientId = tracker.get('clientId');
+            $('.ga-client-id').val(clientId);
+          });
+        });
+      </script>
+      
+        <div id="clippyAssistant"   data-id="11468"
+                            data-firstname="Moussa"
+                            data-batch-number="C#27"
+                            data-lastname="Elisoltanov"
+                            data-slack-id="U08URBZEABW"
+                            data-is-staff="false"
+                            data-location="Holberton Toulouse, France"
+                            data-project-id="2172"
+                            data-location-white-label="false"></div>
+<script type="module" src="https://clippy.hbtn.io/static/client/js/clippy/app.js"></script>
+</body>
+</html>
