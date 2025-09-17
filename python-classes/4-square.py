@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Defines a class Square with a private size attribute and property."""
 
 
@@ -10,9 +10,10 @@ class Square:
             size (int): The size of the square.
         Raises:
             TypeError: If size is not an integer.
-            VelueError: If size is less than 0.
+            ValueError: If size is less than 0.
         """
         self.size = size
+
     @property
     def size(self):
         """Get the size of the square."""
