@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Define a class Square with size and position attributes, and advanced print."""
+"""Define a class Square with size and position attributes,
+    and advanced print.
+"""
 
 
 class Square:
@@ -11,7 +13,8 @@ class Square:
             size (int): The size of the square.
             position (tuple): The position (spaces right, lines down).
         Raises:
-            TyperError: If size is not an integer or position is not a tuple of 2 positives integers.
+            TyperError: If size is not an integer
+                        or position is not a tuple of 2 positives integers.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -21,7 +24,7 @@ class Square:
     def size(self):
         """Get the size of the square."""
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """Set the size of the square with validation."""
@@ -30,7 +33,7 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-    
+
     @property
     def position(self):
         """Get the position of the square."""
