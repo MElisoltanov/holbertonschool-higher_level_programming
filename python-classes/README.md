@@ -13,16 +13,16 @@ Read or watch the below resources in the order presented.
 
 **Read or watch**:
 
-- [Object Oriented Programming](/rltoken/5envVBirO286MdSZgZ4DoQ) (_Read everything until the paragraph “Inheritance” excluded. You do NOT have to learn about class attributes, `classmethod` and `staticmethod` yet_)
-- [Object-Oriented Programming](/rltoken/sCdUrEsHLFH2NpUzI5Xx8w) (_Please *be careful*: in most of the following paragraphs, the author shows things the way you should not use or write a class in order to help you better understand some concepts and how everything works in Python 3. Make sure you read everything in the following paragraphs: General Introduction, First-class Everything, A Minimal Class in Python, Attributes (You DON’T have to learn about class attributes), Methods, The `__init__` Method, “Data Abstraction, Data Encapsulation, and Information Hiding,” “Public, Protected, and Private Attributes”_)
-- [Properties vs. Getters and Setters](/rltoken/3B0RWILA_kSjK5udEbFt-A)
-- [Learn to Program 9 : Object Oriented Programming](/rltoken/5u8UhnaTWX2A-G7LICKCDw)
-- [Python Classes and Objects](/rltoken/cwqg7Ud04LTDsatPT17CaQ)
-- [Object Oriented Programming](/rltoken/6cZhWLe083CJERYLjAM0BQ)
+- [Object Oriented Programming](https://python.swaroopch.com/oop.html) (_Read everything until the paragraph “Inheritance” excluded. You do NOT have to learn about class attributes, `classmethod` and `staticmethod` yet_)
+- [Object-Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php) (_Please *be careful*: in most of the following paragraphs, the author shows things the way you should not use or write a class in order to help you better understand some concepts and how everything works in Python 3. Make sure you read everything in the following paragraphs: General Introduction, First-class Everything, A Minimal Class in Python, Attributes (You DON’T have to learn about class attributes), Methods, The `__init__` Method, “Data Abstraction, Data Encapsulation, and Information Hiding,” “Public, Protected, and Private Attributes”_)
+- [Properties vs. Getters and Setters](https://python-course.eu/oop/properties-vs-getters-and-setters.php)
+- [Learn to Program 9 : Object Oriented Programming](https://www.youtube.com/watch?v=1AGyBuVCTeE)
+- [Python Classes and Objects](https://www.youtube.com/watch?v=apACNr7DC_s)
+- [Object Oriented Programming](https://www.youtube.com/watch?v=-DP1i2ZU9gk)
 
 ## Learning Objectives
 
-At the end of this project, you are expected to be able to [explain to anyone](/rltoken/gwuqSZXS7ElRbiObQzDcTg), **without the help of Google**:
+At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), **without the help of Google**:
 
 ### General
 
@@ -65,7 +65,7 @@ At the end of this project, you are expected to be able to [explain to anyone](/
 
 ## More Info
 
-**Documentation is now mandatory!** Each module, class, and method must contain docstring as comments. [Example Google Style Python Docstrings](/rltoken/WK6oRgAsdc3cSB4XHgE_1A)
+**Documentation is now mandatory!** Each module, class, and method must contain docstring as comments. [Example Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
 
 ---
 
