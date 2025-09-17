@@ -1,5 +1,8 @@
 # Project: Python - Hello, World | Holberton Toulouse, France Intranet
 
+For this project, we expect you to look at this concept:
+- [Python programming](https://intranet.hbtn.io/concepts/896 "Python programming")
+
 ## Author’s disclaimer
 
 ```
@@ -19,16 +22,16 @@ Enjoy!
 
 Use this playlist as long as you are learning Python:
 
-- [Learn to Program](/rltoken/n9ts_nUw1YtCR9BZtGrHdQ "Learn to Program")
-- [Whetting Your Appetite](/rltoken/9w2S6R8vtwlmQcPg33445w "Whetting Your Appetite")
-- [Using the Python Interpreter](/rltoken/O87tA-o6pQ8HXAl93xxGGA "Using the Python Interpreter")
-- [An Informal Introduction to Python](/rltoken/x1m4AhQ1Vy9eUBaXFLRHPQ "An Informal Introduction to Python") (_Read up until “3.1.2. Strings” included_)
-- [How To Use String Formatters in Python 3](/rltoken/dd7bIKsC3_0wb3Np_8URUA "How To Use String Formatters in Python 3")
-- [Pycodestyle – Style Guide for Python Code](/rltoken/qHCPZY23PoEBaDVce2P0nw "Pycodestyle -- Style Guide for Python Code")
+- [Learn to Program](https://www.youtube.com/playlist?list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt "Learn to Program")
+- [Whetting Your Appetite](https://docs.python.org/3/tutorial/appetite.html "Whetting Your Appetite")
+- [Using the Python Interpreter](https://docs.python.org/3/tutorial/interpreter.html "Using the Python Interpreter")
+- [An Informal Introduction to Python](https://docs.python.org/3/tutorial/introduction.html "An Informal Introduction to Python") (_Read up until “3.1.2. Strings” included_)
+- [How To Use String Formatters in Python 3](https://realpython.com/python-f-strings/ "How To Use String Formatters in Python 3")
+- [Pycodestyle – Style Guide for Python Code](https://pypi.org/project/pycodestyle/ "Pycodestyle -- Style Guide for Python Code")
 
 ## Learning Objectives
 
-At the end of this project, you are expected to be able to [explain to anyone](/rltoken/e_ValpdMEXoyMauk0b_SSQ "explain to anyone"), **without the help of Google**:
+At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/ "explain to anyone"), **without the help of Google**:
 
 ### General
 
@@ -56,7 +59,7 @@ At the end of this project, you are expected to be able to [explain to anyone](/
 
 ### Pycodestyle
 
-`Pycodestyle` is now the [new standard of Python style code](/rltoken/-kju7-n2p8pzvgvgbmAyPw "new standard of Python style code")
+`Pycodestyle` is now the [new standard of Python style code](https://github.com/PyCQA/pycodestyle/issues/466 "new standard of Python style code")
 
 ---
 
@@ -73,10 +76,10 @@ What does this command line print?
 >>> print("Holberton school")
 ```
 
-- Holberton
-- “Holberton school”
-- **Holberton school**
-- ‘Holberton school’
+- [ ] Holberton
+- [ ] “Holberton school”
+- [x] Holberton school
+- [ ] ‘Holberton school’
 
 ---
 
@@ -88,10 +91,10 @@ What does this command line print?
 >>> print(f"{98} Battery street")
 ```
 
-- **98 Battery street**
-- f"98 Battery street"
-- 9 Battery street
-- 8 Battery street
+- [x] 98 Battery street
+- [ ] f"98 Battery street"
+- [ ] 9 Battery street
+- [ ] 8 Battery street
 
 ---
 
@@ -103,10 +106,10 @@ What does this command line print?
 >>> print(f"{98} Battery street, {'San Francisco'}")
 ```
 
-- “98 Battery street, San Francisco”
-- 8 Battery street, San
-- **98 Battery street, San Francisco**
-- San Francisco Battery street, 98
+- [ ] “98 Battery street, San Francisco”
+- [ ] 8 Battery street, San
+- [x] 98 Battery street, San Francisco
+- [ ] San Francisco Battery street, 98
 
 ---
 
@@ -119,10 +122,10 @@ What does this command line print?
 >>> print(a[4])
 ```
 
-- P
-- n
-- **o**
-- h
+- [ ] P
+- [ ] n
+- [x] o
+- [ ] h
 
 ---
 
@@ -135,10 +138,10 @@ What does this command line print?
 >>> print(a[0:6])
 ```
 
-- **Python**
-- Pytho
-- Python is
-- Python is cool
+- [x] Python
+- [ ] Pytho
+- [ ] Python is
+- [ ] Python is cool
 
 ---
 
@@ -151,10 +154,10 @@ What does this command line print?
 >>> print(a[:6])
 ```
 
-- Pytho
-- **Python**
-- Python is
-- is cool
+- [ ] Pytho
+- [x] Python
+- [ ] Python is
+- [ ] is cool
 
 ---
 
@@ -167,10 +170,10 @@ What does this command line print?
 >>> print(a[7:])
 ```
 
-- Python i
-- Python is
-- cool
-- **is cool**
+- [ ] Python i
+- [ ] Python is
+- [ ] cool
+- [x] is cool
 
 ---
 
@@ -183,11 +186,11 @@ What does this command line print?
 >>> print(a[7:-5])
 ```
 
-- on
-- nohtyP
-- Python
-- si
-- **is**
+- [ ] on
+- [ ] nohtyP
+- [ ] Python
+- [ ] si
+- [x] is
 
 ---
 
@@ -200,10 +203,10 @@ What does this command line print?
 >>> print(a[-2])
 ```
 
-- ol
-- l
-- **o**
-- Nothing
+- [ ] ol
+- [ ] l
+- [x] o
+- [ ] Nothing
 
 ---
 
@@ -215,7 +218,7 @@ Write a Python script that prints exactly `"Programming is like building a multi
 
 - Use the function `print`
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./2-print.py 
 "Programming is like building a multilingual puzzle
 guillaume@ubuntu:~/py/$
@@ -226,7 +229,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `2-print.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # Ceci s'appelle un "shebang".
 # Il indique au système d'exploitation d'utiliser l'interpréteur Python 3
@@ -259,9 +264,9 @@ Complete this [source code](https://github.com/hs-hq/0x00.py/blob/master/3-print
     - followed by a new line
 - You are not allowed to cast the variable `number` into a string
 - Your code must be 3 lines long
-- You have to use f-strings [tips](/rltoken/dd7bIKsC3_0wb3Np_8URUA)
+- You have to use f-strings [tips](https://realpython.com/python-f-strings/)
 
-```shell
+```python
 guillaume@ubuntu:~/py/0x00$ ./3-print_number.py
 98 Battery street
 guillaume@ubuntu:~/py/0x00$ 
@@ -272,7 +277,9 @@ guillaume@ubuntu:~/py/0x00$
 - Directory: `python-hello_world`
 - File: `3-print_number.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # Le "shebang" indique au système d'exploitation quel interpréteur utiliser
 # pour exécuter ce fichier. Ici, il s'agit de Python 3.
@@ -312,7 +319,7 @@ Complete the source code in order to print the float stored in the variable `num
 - You are not allowed to cast `number` to string
 - You have to use f-strings
 
-```shell
+```python
 guillaume@ubuntu:~/py/0x00$ ./4-print_float.py
 Float: 3.14
 guillaume@ubuntu:~/py/0x00$ 
@@ -323,7 +330,9 @@ guillaume@ubuntu:~/py/0x00$
 - Directory: `python-hello_world`
 - File: `4-print_float.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # Le "shebang" indique au système d'exploitation quel interpréteur utiliser
 # pour exécuter ce script Python. Ici, il s'agit de Python 3.
@@ -370,7 +379,7 @@ Complete this [source code](https://github.com/hs-hq/0x00.py/blob/master/5-print
 - You are not allowed to use any loops or conditional statement
 - Your program should be maximum 5 lines long
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./5-print_string.py 
 Holberton SchoolHolberton SchoolHolberton School
 Holberton
@@ -382,7 +391,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `5-print_string.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # La ligne ci-dessus s'appelle un "shebang".
 # Elle indique au système d'exploitation d'utiliser l'interpréteur Python 3
@@ -428,7 +439,7 @@ Complete this [source code](https://github.com/hs-hq/0x00.py/blob/master/6-conca
 - You have to use the variables `str1` and `str2` in your new line of code
 - Your program should be exactly 5 lines long
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./6-concat.py
 Welcome to Holberton School!
 guillaume@ubuntu:~/py/$ wc -l 6-concat.py
@@ -441,7 +452,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `6-concat.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # La ligne ci-dessus s'appelle un "shebang".
 # Elle indique au système d'exploitation d'utiliser l'interpréteur Python 3
@@ -492,7 +505,7 @@ Complete this [source code](https://github.com/hs-hq/0x00.py/blob/master/7-edges
 - `word_last_2` should contain the last 2 letters of the variable `word`
 - `middle_word` should contain the value of the variable `word` without the first and last letters
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./7-edges.py
 First 3 letters: Hol
 Last 2 letters: on
@@ -507,7 +520,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `7-edges.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # La ligne ci-dessus s'appelle un "shebang".
 # Elle indique au système d'exploitation d'utiliser l'interpréteur Python 3
@@ -571,7 +586,7 @@ Complete this [source code](https://github.com/hs-hq/0x00.py/blob/master/8-conca
 - You are not allowed to create new variables
 - You are not allowed to use string literals
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./8-concat_edges.py
 object-oriented programming with Python
 guillaume@ubuntu:~/py/$ wc -l 8-concat_edges.py
@@ -584,7 +599,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `8-concat_edges.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # La ligne ci-dessus s'appelle un "shebang".
 # Elle indique au système d'exploitation d'utiliser l'interpréteur Python 3
@@ -625,7 +642,7 @@ Write a Python script that prints “The Zen of Python”, by TimPeters, followe
 
 - Your script should be maximum 98 characters long (please check with `wc -m 9-easter_egg.py`)
 
-```shell
+```python
 guillaume@ubuntu:~/py/$ ./9-easter_egg.py
 The Zen of Python, by Tim Peters
 
@@ -656,7 +673,9 @@ guillaume@ubuntu:~/py/$
 - Directory: `python-hello_world`
 - File: `9-easter_egg.py`
 
-```bash
+**Code:**
+
+```python
 #!/usr/bin/python3
 # Le "shebang" (#!) indique au système d'exploitation
 # quel interpréteur utiliser pour exécuter ce fichier.
@@ -688,4 +707,3 @@ import this
 # mais ils sont gérés à l'intérieur du module "this" et non
 # dans ce fichier.
 ```
-
