@@ -2,16 +2,16 @@
 
 **Read or watch**:
 
-- [Object Oriented Programming](/rltoken/NxSyny_ojf0m2yY1FxhvsA) (_Read everything until the paragraph “Inheritance” (excluded)_)
-- [Object-Oriented Programming](/rltoken/PgSxX0FFvkpyAjNyoU0qcg) (_Please be careful: in most of the following paragraphs, the author shows the way you should not use or write a class, in order to help you better understand some concepts and how everything works in Python 3. Make sure you read only the following paragraphs: “General Introduction,” “First-class Everything,” “A Minimal Class in Python,” “Attributes,” “Methods,” “The `__init__` Method,”  “Data Abstraction, Data Encapsulation, and Information Hiding,” “`__str__`- and `__repr__`-Methods,” “Public- Protected- and Private Attributes,” & “Destructor”_)
-- [Class and Instance Attributes](/rltoken/2Lv-3qPSpQfC1VI52d9LZA)
-- [classmethods and staticmethods](/rltoken/18KAvV_Ife9t5o3HYXj9DQ)
-- [Properties vs. Getters and Setters](/rltoken/uHYbs5bXkYo6KvTtT6K5Sg) (_Mainly the last part “Public instead of Private Attributes”_)
-- [str vs repr](/rltoken/I0LZ2eMDlX6Fc-vrJvY5fA)
+- [Object Oriented Programming](https://python.swaroopch.com/oop.html) (_Read everything until the paragraph “Inheritance” (excluded)_)
+- [Object-Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php) (_Please be careful: in most of the following paragraphs, the author shows the way you should not use or write a class, in order to help you better understand some concepts and how everything works in Python 3. Make sure you read only the following paragraphs: “General Introduction,” “First-class Everything,” “A Minimal Class in Python,” “Attributes,” “Methods,” “The `__init__` Method,”  “Data Abstraction, Data Encapsulation, and Information Hiding,” “`__str__`- and `__repr__`-Methods,” “Public- Protected- and Private Attributes,” & “Destructor”_)
+- [Class and Instance Attributes](https://python-course.eu/oop/class-instance-attributes.php)
+- [classmethods and staticmethods](https://www.youtube.com/watch?v=rq8cL2XMM5M)
+- [Properties vs. Getters and Setters](https://python-course.eu/oop/properties-vs-getters-and-setters.php) (_Mainly the last part “Public instead of Private Attributes”_)
+- [str vs repr](https://shipit.dev/posts/python-str-vs-repr.html)
 
 ## Learning Objectives
 
-At the end of this project, you are expected to be able to [explain to anyone](/rltoken/TUamWq6RTFPs75ESaJtOcg), **without the help of Google**:
+At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), **without the help of Google**:
 
 ### General
 
