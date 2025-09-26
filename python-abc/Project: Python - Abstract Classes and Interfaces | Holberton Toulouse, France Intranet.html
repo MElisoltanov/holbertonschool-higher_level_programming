@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+    <title>Project: Python - Abstract Classes and Interfaces | Holberton Toulouse, France Intranet</title>
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <link rel="stylesheet" href="/assets/application-7eb9b1e48427cd1bd28dbc513b5724dbd9fef87b6f1da03bb757f217b94f7ded.css" media="all" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <meta name="action-cable-url" content="/cable" />
+      <script src="/assets/application-33e17c466b9e27fd7dde69778ca6d985c105abd0ac768b9d9e8f28e537f96cab.js"></script>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="vasGK-fVc3kBC_UvLtNm-i2nX_wbSGQHU9AEcnkE7RzugZmG-MkzJQljnjhLybBKX5zQiSWwoaDiQKZAoRpUEA" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <!-- Select2 -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+      <!-- ChatBot -->
+        <link rel="stylesheet" href="https://clippy.hbtn.io/static/client/css/all.min.css">
+        <script src="https://clippy.hbtn.io/static/client/js/all.min.js"></script>
+      <!-- intro.js for interactive onboarding -->
+        <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css" media="screen" />
+      <!-- React -->
+      <script src="/packs/js/application-a11dd345dbcdb51e5094.js"></script>
+      <link rel="stylesheet" href="/packs/css/application-67dc439c.css" media="screen" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="
+    signed_in
+    env_production
+    
+    "
+    translate="no"
+    class="notranslate"
+    data-theme-suffix=""
+    data-checker-special-theme="">
+      <input type="hidden" id="hbtn-slack-url" value="https://holberton-school-org.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+    <li><a target="_blank" href="https://students-support.hbtn.io/hc"><div class="icon "><i aria-hidden="true" class="fa fa-info-circle "></i></div><div class="visible-xs">Help</div></a></li>
+
+
+    
+    <li><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li><a href="/users/my_reports"><div class="icon "><i aria-hidden="true" class="fa fa-sticky-note-o "></i></div><div class="visible-xs">My reports</div></a></li>
+    <li><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    <li><a href="/dashboards/my_current_reefineries"><div class="icon "><i aria-hidden="true" class="fa fa-commenting-o "></i></div><div class="visible-xs">Mock interviews</div></a></li>
+    <li><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    
+    <li><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li><a href="/user_sandboxes"><div class="icon "><i aria-hidden="true" class="fa fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+      <li><a href="/dashboards/my_officers"><div class="icon "><i aria-hidden="true" class="fa fa-building "></i></div><div class="visible-xs">Officers</div></a></li>
+      <li><a href="/dashboards/my_speakers_of_the_day"><div class="icon "><i aria-hidden="true" class="fa fa-microphone "></i></div><div class="visible-xs">Speakers of the Day</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_3452.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250926%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250926T071519Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=7a6a04da5cf1689464f3f2e31823a62a02ef11b8675f0d66f36fd2a44b0cd7d4')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+    <li><a target="_blank" href="https://students-support.hbtn.io/hc"><div class="icon "><i aria-hidden="true" class="fa fa-info-circle "></i></div><div class="visible-xs">Help</div></a></li>
+
+
+    
+    <li><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li><a href="/users/my_reports"><div class="icon "><i aria-hidden="true" class="fa fa-sticky-note-o "></i></div><div class="visible-xs">My reports</div></a></li>
+    <li><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    <li><a href="/dashboards/my_current_reefineries"><div class="icon "><i aria-hidden="true" class="fa fa-commenting-o "></i></div><div class="visible-xs">Mock interviews</div></a></li>
+    <li><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    
+    <li><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li><a href="/user_sandboxes"><div class="icon "><i aria-hidden="true" class="fa fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+      <li><a href="/dashboards/my_officers"><div class="icon "><i aria-hidden="true" class="fa fa-building "></i></div><div class="visible-xs">Officers</div></a></li>
+      <li><a href="/dashboards/my_speakers_of_the_day"><div class="icon "><i aria-hidden="true" class="fa fa-microphone "></i></div><div class="visible-xs">Speakers of the Day</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_3452.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250926%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250926T071519Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=7a6a04da5cf1689464f3f2e31823a62a02ef11b8675f0d66f36fd2a44b0cd7d4')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+    <main>
+      <div id="layout-bars">
+        <div class="px-5 py-3" id="student-switch-curriculum">
+  <div class="dropdown d-flex flex-column gap-1">
+    <span class="fs-small text-muted">Curriculum</span>
+    <div aria-haspopup="true" aria-expanded="false" class="align-items-center d-flex gap-3" data-toggle="dropdown" id="student-switch-curriculum-dropdown" role="button">
+      <div class="d-flex flex-column" style="line-height: 16px">
+        <span class="fs-4 fw-600">
+            [C#27]
+          Foundations v2.1 - Part 2
+        </span>
+        <span class="fs-small text-muted">
+          Average: <span class="fw-500">95.67%</span>
+        </span>
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <span style="margin-bottom: -4px">
+          <i aria-hidden="true" class="fa fa-angle-up  fa-fw"></i>
+        </span>
+        <span style="margin-top: -4px">
+          <i aria-hidden="true" class="fa fa-angle-down  fa-fw"></i>
+        </span>
+      </div>
+    </div>
+    <ul aria-labelledby="student-switch-curriculum-dropdown" class="dropdown-menu fs-5">
+        <li>
+          <a class="" href="/curriculums/526/observe/69530">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 1
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">92.88%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/441/observe/69815">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  IBM Certificates - France
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">100.0%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/392/observe/83721">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  HBnB v2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/502/observe/83936">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">95.67%
+                          </span>
+                </span>
+              </div>
+                <span class="fw-600 text-info" style="margin-left: 42px">
+                  <i aria-hidden="true" class="fa fa-check "></i>
+                </span>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/423/observe/84098">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  RNCP 5 - Parcours de préparation
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+    </ul>
+  </div>
+</div>
+
+        
+        
+            <div id="captains_log_alert">
+        <a href="/captain_logs/260391/edit">
+            <div>
+                You have a captain's log due before 2025-09-28 (in 2 days)! Log it now!
+            </div>
+</a>    </div>
+
+      </div>
+      <article class="pending_logs">
+        
+<div class="project row container-max">
+
+    <div class="sm-gap">
+    <div data-react-class="projects/ProjectHeader" data-react-props="{&quot;metadata&quot;:{&quot;level&quot;:&quot;Amateur&quot;,&quot;author&quot;:&quot;Javier Valenzani&quot;,&quot;weight&quot;:1,&quot;migrated_to_sasheck&quot;:true,&quot;task_level_review_type&quot;:&quot;Your score will be updated as you progress.&quot;,&quot;correction&quot;:{&quot;released&quot;:true,&quot;requires_manual_correction&quot;:false}},&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3104,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Abstract Classes and Interfaces&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:0},&quot;slackLink&quot;:null,&quot;tags&quot;:[],&quot;videoRoomLink&quot;:null}" data-react-cache-id="projects/ProjectHeader-0"></div>
+  </div>
+
+
+  <div id="project_id" class="d-none" data-project-id="3104"></div>
+
+
+
+    <div>
+      <ul class="nav nav-pills nav-justified" role="tablist">
+          <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+      </ul>
+      <div class="tab-content mt-4">
+        <div role="tabpanel" class="tab-pane active" id="description">
+          <div class="panel panel-default position-relative" id="project-description">
+  <a id="btn-scroll-to-tasks" href="#" class="btn btn-primary fixed-button hidden-xs">
+    Go to tasks <i class="ml-1 fa fa-arrow-down"></i>
+  </a>
+  <div class="panel-body text-justify">
+    <h2>Python OOP - Abtract Class, Interface, Subclassing</h2>
+
+<h3>Introduction:</h3>
+
+<p>Welcome to this set of exercises aimed at honing your understanding and application of Object-Oriented Programming (OOP) concepts in Python. Through these exercises, you will delve into abstract classes, interfaces, duck typing, and subclassing standard base classes among other crucial OOP concepts. By the end of these exercises, you should be proficient in employing OOP principles to design, implement, and test Python programs.</p>
+
+<h3>Learning Objectives:</h3>
+
+<ol>
+<li><strong>Abstract Classes:</strong> Understand and apply abstract classes to define common interfaces while enforcing certain levels of class completeness.</li>
+<li><strong>Interfaces and Duck Typing:</strong> Grasp the concept of interfaces and duck typing to ensure that objects adhere to a specific contract or protocol.</li>
+<li><strong>Subclassing Standard Base Classes:</strong> Learn to extend standard base classes like lists, dictionaries, and iterators to create custom data structures with specialized behavior.</li>
+<li><strong>Method Overriding:</strong> Employ method overriding to alter or enhance the behavior of base class methods.</li>
+<li><strong>Multiple Inheritance:</strong> Understand and apply multiple inheritance to form complex relationships between classes.</li>
+<li><strong>Mixins:</strong> Utilize mixins to compose behavior across unrelated classes.</li>
+</ol>
+
+<h3>Resources:</h3>
+
+<ul>
+<li><a href="/rltoken/oV5Tf8bq_jN2kEhm3kA1dA" title="Python 3 Object-Oriented Programming" target="_blank">Python 3 Object-Oriented Programming</a></li>
+<li><a href="/rltoken/_0PgSum1lebIia7sFQmIbA" title="ABC — Abstract Base Classes" target="_blank">ABC — Abstract Base Classes</a></li>
+<li><a href="/rltoken/9VEEisWUdD72t7ZZOIw0Aw" title="Real Python - Object-Oriented Programming (OOP) in Python 3" target="_blank">Real Python - Object-Oriented Programming (OOP) in Python 3</a></li>
+<li><a href="/rltoken/2aZrJyZm6ld8Uprg_Q9KMQ" title="Corey Schafer - OOP Playlist" target="_blank">Corey Schafer - OOP Playlist</a></li>
+<li><a href="/rltoken/YExxID954JR9aCTgBIZb0A" title="sentdex - Python OOP Tutorial" target="_blank">sentdex - Python OOP Tutorial</a></li>
+</ul>
+
+<p>The above resources provide a mix of reading material, interactive exercises, and video tutorials to cater to different learning styles. It&rsquo;s recommended to go through these resources to build a solid understanding of OOP concepts in Python before attempting the exercises.</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+
+        <h2 id="task-container" class="gap">Tasks</h2>
+  
+  <div class="col-sm-12 col-md-12 col-lg-8 xol-xl-9">
+      <div data-role="task28727" data-position="1" id="task-num-0">
+        <div class="panel panel-default task-card " id="task-28727">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. Abstract Animal Class and its Subclasses
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>In object-oriented programming, Abstract Base Classes (ABCs) ensure that derived classes implement specific methods from the base class. This provides a blueprint for creating and structuring derived classes. Python&rsquo;s <code>ABC</code> package facilitates the creation of abstract base classes.</p>
+
+<h3>Objective:</h3>
+
+<ol>
+<li>Create an abstract class named <code>Animal</code> using the <code>ABC</code> package. This class should have an abstract method called <code>sound</code>.</li>
+<li>Create two subclasses of <code>Animal</code>: <code>Dog</code> and <code>Cat</code>. Implement the <code>sound</code> method in each subclass to return the strings “Bark” and “Meow” respectively.</li>
+</ol>
+
+<h3>Resources:</h3>
+
+<ul>
+<li>Python <code>ABC</code> documentation: <a href="/rltoken/_0PgSum1lebIia7sFQmIbA" title="https://docs.python.org/3/library/abc.html" target="_blank">https://docs.python.org/3/library/abc.html</a></li>
+</ul>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Setting up the Abstract Class</strong>:</p>
+
+<ul>
+<li>Import the necessary components from the <code>abc</code> module.</li>
+<li>Define the <code>Animal</code> class, ensuring it inherits from <code>ABC</code> to mark it as abstract.</li>
+<li>Inside the <code>Animal</code> class, declare an abstract method named <code>sound</code> using the <code>@abstractmethod</code> decorator.</li>
+</ul></li>
+<li><p><strong>Implementing the Subclasses</strong>:</p>
+
+<ul>
+<li>Create a subclass named <code>Dog</code> that inherits from the <code>Animal</code> class.
+
+<ul>
+<li>Implement the <code>sound</code> method in the <code>Dog</code> class to return the string “Bark”.</li>
+</ul></li>
+<li>Similarly, create a subclass named <code>Cat</code> that also inherits from the <code>Animal</code> class.
+
+<ul>
+<li>Implement the <code>sound</code> method in the <code>Cat</code> class to return the string “Meow”.</li>
+</ul></li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>The abstract method in the base class doesn&rsquo;t have a body. You need to provide the implementation in the subclasses.</li>
+<li>If you try to instantiate a class that hasn&rsquo;t implemented all of its abstract methods, Python will raise a <code>TypeError</code>.</li>
+</ul>
+
+<pre><code>$ cat main_00_abc.py 
+#!/usr/bin/env python3
+from task_00_abc import Animal, Dog, Cat
+
+bobby = Dog()
+garfield = Cat()
+
+print(bobby.sound())
+print(garfield.sound())
+
+animal = Animal()
+print(animal.sound())
+
+$ ./main_00_abc.py 
+Bark
+Meow
+Traceback (most recent call last):
+  File &quot;main_00_abc.py&quot;, line 10, in &lt;module&gt;
+    animal = Animal()
+TypeError: Can&#39;t instantiate abstract class Animal with abstract method sound
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_00_abc.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28727" data-batch-id="1063" data-toggle="modal" data-target="#task-28727-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28727-users-done-modal" data-task-id="28727" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "0. Abstract Animal Class and its Subclasses"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28727" data-toggle="modal" data-target="#task-test-correction-28727-correction-modal" id="task-num-0-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28727-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "0. Abstract Animal Class and its Subclasses"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28727">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28727">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28727">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28727-score-info-score">0</span>/5
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28728" data-position="2" id="task-num-1">
+        <div class="panel panel-default task-card " id="task-28728">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. Shapes, Interfaces, and Duck Typing
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>Python employs a concept called &ldquo;duck typing,&rdquo; which is concerned with the semantics of objects rather than their inheritance hierarchy. If an object behaves like a duck (i.e., has all the methods and properties of a duck), then it&rsquo;s considered a duck, regardless of its actual class. This concept allows for flexible and dynamic polymorphism. </p>
+
+<p>In this exercise, we&rsquo;ll use abstract base classes to design a blueprint for shapes and use duck typing to handle objects of different shapes uniformly.</p>
+
+<h3>Objective:</h3>
+
+<ol>
+<li>Create an abstract class named <code>Shape</code> with two abstract methods: <code>area</code> and <code>perimeter</code>.</li>
+<li>Implement two concrete classes: <code>Circle</code> and <code>Rectangle</code>, both inheriting from <code>Shape</code>. Each class should provide implementations for the <code>area</code> and <code>perimeter</code> methods.</li>
+<li>Write a standalone function named <code>shape_info</code> that accepts an object of type <code>Shape</code> (by duck typing) and prints its area and perimeter.</li>
+<li>Test the <code>shape_info</code> function with instances of both <code>Circle</code> and <code>Rectangle</code>.</li>
+</ol>
+
+<h3>Resources:</h3>
+
+<ul>
+<li>Python <code>ABC</code> documentation: <a href="/rltoken/_0PgSum1lebIia7sFQmIbA" title="https://docs.python.org/3/library/abc.html" target="_blank">https://docs.python.org/3/library/abc.html</a></li>
+<li>Concept of Duck Typing: <a href="/rltoken/i3FBxu-VBtDf3LuXcT_82g" title="https://realpython.com/lessons/duck-typing/" target="_blank">https://realpython.com/lessons/duck-typing/</a></li>
+</ul>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Shape Abstract Class</strong>:</p>
+
+<ul>
+<li>Define an abstract class <code>Shape</code> using the <code>ABC</code> package.</li>
+<li>Within <code>Shape</code>, declare two abstract methods: <code>area</code> and <code>perimeter</code>.</li>
+</ul></li>
+<li><p><strong>Circle and Rectangle Classes</strong>:</p>
+
+<ul>
+<li>Create a <code>Circle</code> class that inherits from <code>Shape</code>. The constructor (<code>__init__</code>) should accept a radius. Implement the <code>area</code> and <code>perimeter</code> methods.</li>
+<li>Create a <code>Rectangle</code> class, also inheriting from <code>Shape</code>. Its constructor should accept the width and height. Implement the <code>area</code> and <code>perimeter</code> methods.</li>
+</ul></li>
+<li><p><strong>shape_info Function</strong>:</p>
+
+<ul>
+<li>Define a function named <code>shape_info</code> that takes a single argument.</li>
+<li>Without explicitly checking the type of the argument, call its <code>area</code> and <code>perimeter</code> methods (relying on duck typing).</li>
+<li>Print the area and perimeter of the shape passed to the function.</li>
+</ul></li>
+<li><p><strong>Testing</strong>:</p>
+
+<ul>
+<li>Instantiate a <code>Circle</code> and a <code>Rectangle</code>.</li>
+<li>Pass each object to the <code>shape_info</code> function and observe the output.</li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>While Python doesn&rsquo;t enforce interfaces in the same way as statically-typed languages, abstract base classes provide a mechanism to ensure certain methods are implemented in subclasses.</li>
+<li>Duck typing in the <code>shape_info</code> function implies that you shouldn&rsquo;t use <code>isinstance</code> checks. Instead, trust that the passed object adheres to the <code>Shape</code> interface.</li>
+</ul>
+
+<pre><code>$ cat main_01_duck_typing.py 
+#!/usr/bin/env python3
+from task_01_duck_typing import Circle, Rectangle, shape_info
+
+circle = Circle(radius=5)
+rectangle = Rectangle(width=4, height=7)
+
+shape_info(circle)
+shape_info(rectangle)
+
+$ ./main_01_duck_typing.py 
+Area: 78.53981633974483
+Perimeter: 31.41592653589793
+Area: 28
+Perimeter: 22
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_01_duck_typing.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28728" data-batch-id="1063" data-toggle="modal" data-target="#task-28728-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28728-users-done-modal" data-task-id="28728" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "1. Shapes, Interfaces, and Duck Typing"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28728" data-toggle="modal" data-target="#task-test-correction-28728-correction-modal" id="task-num-1-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28728-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "1. Shapes, Interfaces, and Duck Typing"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28728">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28728">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28728">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28728-score-info-score">0</span>/9
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28729" data-position="3" id="task-num-2">
+        <div class="panel panel-default task-card " id="task-28729">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. Extending the Python List with Notifications
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>In Python, you can extend built-in classes to add or modify behavior. The <code>list</code> class provides a collection of methods and functionalities that handle list operations. By extending the <code>list</code> class, you can provide custom behaviors while retaining the original functionalities.</p>
+
+<h3>Objective:</h3>
+
+<p>Create a class named <code>VerboseList</code> that extends the Python <code>list</code> class. This custom class should print a notification message every time an item is added (using the <code>append</code> or <code>extend</code> methods) or removed (using the <code>remove</code> or <code>pop</code> methods).</p>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Setting up the VerboseList Class</strong>:</p>
+
+<ul>
+<li>Define a class <code>VerboseList</code> that inherits from the built-in <code>list</code> class.</li>
+<li>Within <code>VerboseList</code>, override the methods that modify the list: <code>append</code>, <code>extend</code>, <code>remove</code>, and <code>pop</code>.</li>
+</ul></li>
+<li><p><strong>Implementing Notifications</strong>:</p>
+
+<ul>
+<li>For the <code>append</code> method: After adding the item to the list, print a message like &ldquo;Added [item] to the list.&rdquo;</li>
+<li>For the <code>extend</code> method: After extending the list, print a message like &ldquo;Extended the list with [x] items.&rdquo; where [x] is the number of items added.</li>
+<li>For the <code>remove</code> method: Before removing the item from the list, print a message like &ldquo;Removed [item] from the list.&rdquo;</li>
+<li>For the <code>pop</code> method: Before popping the item from the list, print a message like &ldquo;Popped [item] from the list.&rdquo; If the index is not specified, default behavior is to pop the last item.</li>
+</ul></li>
+<li><p><strong>Testing</strong>:</p>
+
+<ul>
+<li>Instantiate a <code>VerboseList</code> object.</li>
+<li>Test all the overridden methods (<code>append</code>, <code>extend</code>, <code>remove</code>, and <code>pop</code>) and ensure that the appropriate messages are printed for each operation.</li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>Remember to call the original method of the <code>list</code> class using the <code>super()</code> function to ensure that the original functionality is retained. For example, for <code>append</code>: <code>super().append(item)</code>.</li>
+<li>Think about edge cases, such as trying to remove an item that doesn&rsquo;t exist in the list.</li>
+</ul>
+
+<pre><code>$ cat main_02_verboselist.py 
+#!/usr/bin/env python3
+from task_02_verboselist import VerboseList
+
+vl = VerboseList([1, 2, 3])
+vl.append(4)
+vl.extend([5, 6])
+vl.remove(2)
+vl.pop()
+vl.pop(0)
+
+$ ./main_02_verboselist.py 
+Added [4] to the list.
+Extended the list with [2] items.
+Removed [2] from the list.
+Popped [6] from the list.
+Popped [1] from the list.
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_02_verboselist.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28729" data-batch-id="1063" data-toggle="modal" data-target="#task-28729-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28729-users-done-modal" data-task-id="28729" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "2. Extending the Python List with Notifications"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28729" data-toggle="modal" data-target="#task-test-correction-28729-correction-modal" id="task-num-2-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28729-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "2. Extending the Python List with Notifications"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28729">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28729">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28729">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28729-score-info-score">0</span>/5
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28730" data-position="4" id="task-num-3">
+        <div class="panel panel-default task-card " id="task-28730">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. CountedIterator - Keeping Track of Iteration
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>Subclassing allows a new class to inherit properties and methods from an existing class. In Python, many built-in classes can be extended to customize or enhance their behavior. The <code>iter</code> function, which returns an iterator object, provides the <code>__next__</code> method to fetch the next item in the sequence. This exercise focuses on extending the functionality of this iterator object.</p>
+
+<h3>Objective:</h3>
+
+<p>Create a class named <code>CountedIterator</code> that extends the built-in iterator obtained from the <code>iter</code> function. The <code>CountedIterator</code> should keep track of the number of items that have been iterated over. Specifically, you will need to override the <code>__next__</code> method to increment a counter each time an item is fetched.</p>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Setting up the CountedIterator Class</strong>:</p>
+
+<ul>
+<li>Define a class <code>CountedIterator</code>.</li>
+<li>In the constructor (<code>__init__</code>), initialize two attributes: the iterator object (using the <code>iter</code> function) and a counter to track the number of items iterated.</li>
+<li>Provide a method <code>get_count</code> to return the current value of the counter.</li>
+</ul></li>
+<li><p><strong>Overriding the <strong>next</strong> Method</strong>:</p>
+
+<ul>
+<li>Within the <code>CountedIterator</code> class, override the <code>__next__</code> method.</li>
+<li>In this method, increment the counter each time the <code>__next__</code> method is called.</li>
+<li>Fetch the next item from the original iterator and return it. If there are no items left to iterate, the method should raise the <code>StopIteration</code> exception.</li>
+</ul></li>
+<li><p><strong>Testing</strong>:</p>
+
+<ul>
+<li>Instantiate a <code>CountedIterator</code> object using a list or another iterable.</li>
+<li>Iterate over items using a loop or manual calls to the <code>__next__</code> method.</li>
+<li>Use the <code>get_count</code> method to retrieve and print the number of items that have been fetched.</li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>Remember that the <code>__next__</code> method should raise a <code>StopIteration</code> exception when there are no more items to iterate, so ensure this behavior is retained in your overridden method.</li>
+<li>You can initialize the iterator object in the <code>CountedIterator</code> constructor using: <code>self.iterator = iter(some_iterable)</code>.</li>
+</ul>
+
+<pre><code>$ cat main_03_countediterator.py 
+#!/usr/bin/env python3
+from task_03_countediterator import CountedIterator
+
+data = [1, 2, 3, 4]
+counted_iter = CountedIterator(data)
+
+try:
+    while True:
+        item = next(counted_iter)
+        print(f&quot;Got {item}, total {counted_iter.get_count()} items iterated.&quot;)
+except StopIteration:
+    print(&quot;No more items.&quot;)
+
+$ ./main_03_countediterator.py 
+Got 1, total 1 items iterated.
+Got 2, total 2 items iterated.
+Got 3, total 3 items iterated.
+Got 4, total 4 items iterated.
+No more items.
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_03_countediterator.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28730" data-batch-id="1063" data-toggle="modal" data-target="#task-28730-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28730-users-done-modal" data-task-id="28730" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "3. CountedIterator - Keeping Track of Iteration"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28730" data-toggle="modal" data-target="#task-test-correction-28730-correction-modal" id="task-num-3-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28730-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "3. CountedIterator - Keeping Track of Iteration"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28730">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28730">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28730">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28730-score-info-score">0</span>/3
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28731" data-position="5" id="task-num-4">
+        <div class="panel panel-default task-card " id="task-28731">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      4. The Enigmatic FlyingFish - Exploring Multiple Inheritance
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>In some object-oriented languages, a class can inherit attributes and behaviors from more than one parent class. This is known as multiple inheritance. Python is one of the languages that supports multiple inheritance, which can be a powerful tool, but it also comes with complexities, particularly regarding method resolution order (MRO).</p>
+
+<h3>Objective:</h3>
+
+<p>Construct a <code>FlyingFish</code> class that inherits from both a <code>Fish</code> class and a <code>Bird</code> class. Within <code>FlyingFish</code>, override methods from both parents. The goal is to comprehend multiple inheritance and how Python determines method resolution order.</p>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Parent Classes Setup</strong>:</p>
+
+<ul>
+<li>Create a <code>Fish</code> class with methods <code>swim</code> (which prints &ldquo;The fish is swimming&rdquo;) and <code>habitat</code> (which prints &ldquo;The fish lives in water&rdquo;).</li>
+<li>Create a <code>Bird</code> class with methods <code>fly</code> (which prints &ldquo;The bird is flying&rdquo;) and <code>habitat</code> (which prints &ldquo;The bird lives in the sky&rdquo;).</li>
+</ul></li>
+<li><p><strong>Implementing FlyingFish</strong>:</p>
+
+<ul>
+<li>Construct a <code>FlyingFish</code> class that inherits from both <code>Fish</code> and <code>Bird</code>.</li>
+<li>Override the <code>fly</code> method to print &ldquo;The flying fish is soaring!&rdquo;.</li>
+<li>Override the <code>swim</code> method to print &ldquo;The flying fish is swimming!&rdquo;.</li>
+<li>Override the <code>habitat</code> method to print &ldquo;The flying fish lives both in water and the sky!&rdquo;.</li>
+</ul></li>
+<li><p><strong>Testing and MRO Exploration</strong>:</p>
+
+<ul>
+<li>Instantiate an object of the <code>FlyingFish</code> class.</li>
+<li>Call the <code>fly</code>, <code>swim</code>, and <code>habitat</code> methods and observe the outputs.</li>
+<li>Use the <code>mro()</code> method or the <code>.__mro__</code> attribute on the <code>FlyingFish</code> class to investigate the method resolution order. For instance, <code>print(FlyingFish.mro())</code>.</li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>Consider the order in which you list the parent classes when defining <code>FlyingFish</code>. It affects the method resolution order.</li>
+<li>While multiple inheritance can be a powerful tool, it should be used judiciously, as it can make the code more complex and harder to read.</li>
+</ul>
+
+<pre><code>$ cat main_04_flyingfish.py 
+#!/usr/bin/env python3
+from task_04_flyingfish import Fish, FlyingFish
+
+flying_fish = FlyingFish()
+flying_fish.swim()
+flying_fish.fly()
+flying_fish.habitat()
+
+$ ./main_04_flyingfish.py 
+The flying fish is swimming!
+The flying fish is soaring!
+The flying fish lives both in water and the sky!
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_04_flyingfish.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28731" data-batch-id="1063" data-toggle="modal" data-target="#task-28731-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28731-users-done-modal" data-task-id="28731" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "4. The Enigmatic FlyingFish - Exploring Multiple Inheritance"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28731" data-toggle="modal" data-target="#task-test-correction-28731-correction-modal" id="task-num-4-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28731-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "4. The Enigmatic FlyingFish - Exploring Multiple Inheritance"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28731">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28731">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28731">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28731-score-info-score">0</span>/3
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28732" data-position="6" id="task-num-5">
+        <div class="panel panel-default task-card " id="task-28732">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      5. The Mystical Dragon - Mastering Mixins
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <h3>Background:</h3>
+
+<p>Mixins are a way to add functionality to classes in a modular fashion. They&rsquo;re not meant to stand alone but are meant to be combined with other classes to add behaviors. By using mixins, you can compose behaviors in classes without the need for deep or rigid inheritance hierarchies.</p>
+
+<h3>Objective:</h3>
+
+<p>Design two mixin classes, <code>SwimMixin</code> and <code>FlyMixin</code>, each equipped with methods <code>swim</code> and <code>fly</code> respectively. Next, construct a class <code>Dragon</code> that inherits from both these mixins. Your aim is to show that a <code>Dragon</code> instance can both swim and fly.</p>
+
+<h3>Instructions:</h3>
+
+<ol>
+<li><p><strong>Creating Mixins</strong>:</p>
+
+<ul>
+<li>Design a mixin called <code>SwimMixin</code> with a method <code>swim</code> that prints &ldquo;The creature swims!&rdquo;.</li>
+<li>Design another mixin called <code>FlyMixin</code> with a method <code>fly</code> that prints &ldquo;The creature flies!&rdquo;.</li>
+</ul></li>
+<li><p><strong>Implementing Dragon</strong>:</p>
+
+<ul>
+<li>Construct a class named <code>Dragon</code> that inherits from both <code>SwimMixin</code> and <code>FlyMixin</code>.</li>
+<li>Within the <code>Dragon</code> class, you can add additional methods or attributes if desired, such as <code>roar</code>, which could print &ldquo;The dragon roars!&rdquo;.</li>
+</ul></li>
+<li><p><strong>Testing the Dragon&rsquo;s Abilities</strong>:</p>
+
+<ul>
+<li>Instantiate an object of the <code>Dragon</code> class named <code>draco</code>.</li>
+<li>Demonstrate <code>draco</code>&lsquo;s abilities by calling the <code>swim</code>, <code>fly</code>, and (if implemented) <code>roar</code> methods.</li>
+</ul></li>
+</ol>
+
+<p><strong>Hints</strong>:</p>
+
+<ul>
+<li>While designing mixins, remember that they should be focused, providing a single piece of functionality. They shouldn&rsquo;t be overly broad or try to manage too much behavior.</li>
+<li>Mixins allow for code reusability and can be combined in various ways to give objects different capabilities without setting up complex inheritance hierarchies.</li>
+</ul>
+
+<pre><code>$ cat main_05_dragon.py 
+#!/usr/bin/env python3
+from task_05_dragon import Dragon
+
+dragon = Dragon()
+dragon.swim()  # Outputs: The creature swims!
+dragon.fly()   # Outputs: The creature flies!
+dragon.roar()  # Outputs: The dragon roars!
+
+$ ./main_05_dragon.py 
+The creature swims!
+The creature flies!
+The dragon roars!
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-abc</code></li>
+            <li>File: <code>task_05_dragon.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28732" data-batch-id="1063" data-toggle="modal" data-target="#task-28732-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28732-users-done-modal" data-task-id="28732" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "5. The Mystical Dragon - Mastering Mixins"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm" data-task-id="28732" data-toggle="modal" data-target="#task-test-correction-28732-correction-modal" id="task-num-5-check-code-btn">
+          Review your work
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-28732-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "5. The Mystical Dragon - Mastering Mixins"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="28732">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+
+
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="28732">
+        <i aria-hidden="true" class="fa fa-info-circle "></i>
+    </button>
+    <div class="help-container" data-task-id="28732">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                  <i aria-hidden="true" class="fa fa-check-circle "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                  <i aria-hidden="true" class="fa fa-times-circle "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+    
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28732-score-info-score">0</span>/3
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Inheritance" class="btn btn-primary" role="button" href="/projects/2127">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517812/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=SCmbKrnmS2oytquxpzZnERxDVOmIc7u-doNVdokhm2obAwSHpvoLNjrewKbCLLGhbnjbnLaLfhnHE_dEUT8iZg
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-sm-12 col-md-12 hidden-lg">
+        <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;line&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517812/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517812/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;fWzCzynezwEztWCFOjrVxAF2cPPOaaSumGRYVuvucbQuRl1iNsKPXTvdC5JfIAN0c03_hvCRYQkp9PpkM_DIuA&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: Python - Input/Output&quot;,&quot;uri&quot;:&quot;/projects/2182&quot;},&quot;fetchURI&quot;:&quot;/projects/3104/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:28727,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28728,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:9,&quot;score&quot;:0}},{&quot;id&quot;:28729,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28730,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}},{&quot;id&quot;:28731,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}},{&quot;id&quot;:28732,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3104,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Abstract Classes and Interfaces&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:0},&quot;skipURI&quot;:&quot;/corrections/1517812/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+    </div>
+
+  <div class="col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md sticky-nav">
+          <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;column&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517812/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517812/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;379T1aIqtNx2b1GszD3Qbh7Feo40nQd1D1JgZO9lsGaMlcx4vTb0gH4HOrupJwbebP71-wplwtK-wsJWN3sJag&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: Python - Input/Output&quot;,&quot;uri&quot;:&quot;/projects/2182&quot;},&quot;fetchURI&quot;:&quot;/projects/3104/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:28727,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28728,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:9,&quot;score&quot;:0}},{&quot;id&quot;:28729,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28730,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}},{&quot;id&quot;:28731,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}},{&quot;id&quot;:28732,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3104,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Abstract Classes and Interfaces&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:0},&quot;skipURI&quot;:&quot;/corrections/1517812/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+
+    <div class="panel panel-default task-card " id="task-18584">
+      <span id="user_id" data-id="2303"></span>
+      <div class="panel-heading panel-heading-actions">
+        <h3 class="panel-title">
+          Tasks list
+        </h3>
+      </div>
+      <div class="panel-body task-list">
+          <ul class="nav nav-pills nav-justified" role="tablist">
+              <li class="active"><a href="#mandatory" role="tab" data-toggle="tab">Mandatory</a></li>
+              <li><a href="#advanced" role="tab" data-toggle="tab">Advanced</a></li>
+          </ul>
+          <div class="tab-content mt-4">
+            <div role="tabpanel" class="tab-pane active" id="mandatory">
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="0" id="heading-0">
+                    <div class="task-title-list">0. <code>Abstract Animal Class and its Subclasses</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28727'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="1" id="heading-1">
+                    <div class="task-title-list">1. <code>Shapes, Interfaces, and Duck Typing</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28728'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="2" id="heading-2">
+                    <div class="task-title-list">2. <code>Extending the Python List with Notifications</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28729'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="3" id="heading-3">
+                    <div class="task-title-list">3. <code>CountedIterator - Keeping Track of Iteration</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28730'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="4" id="heading-4">
+                    <div class="task-title-list">4. <code>The Enigmatic FlyingFish - Exploring Multiple Inheritance</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28731'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="5" id="heading-5">
+                    <div class="task-title-list">5. <code>The Mystical Dragon - Mastering Mixins</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28732'></strong>
+                  </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="advanced">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="/assets/javascripts/application/custom/project_tasks.js"></script>
+
+
+      
+        <div class="modal fade" id="sandboxes-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandboxes</h4></div><div class="modal-body"><div data-react-class="user_sandboxes/Sandboxes" data-react-props="{&quot;images&quot;:[{&quot;id&quot;:130,&quot;name&quot;:&quot;Ubuntu 22.04 - Java&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:17,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:14,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Europe (Paris)&quot;},{&quot;id&quot;:18,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Asia Pacific (Sydney)&quot;},{&quot;id&quot;:16,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;US East (N. Virginia)\t&quot;},{&quot;id&quot;:128,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;},{&quot;id&quot;:129,&quot;name&quot;:&quot;Ubuntu 18.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;}],&quot;sandboxesUri&quot;:&quot;/user_sandboxes&quot;,&quot;csrfToken&quot;:&quot;R6UHHu-sUjmbuQ50AD6UsvIpBb_HC8MRWPPJtMnBiu8Uj5iz8LASZZPRZWNlJEICgBKKyvnzBrbpY2uGEd8z4w&quot;,&quot;maxNumberOfContainers&quot;:2}" data-react-cache-id="user_sandboxes/Sandboxes-0"></div></div></div></div></div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Inheritance" class="btn btn-primary" role="button" href="/projects/2127">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517812/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=-K0rbemvII_KIdwHmCNsELSOQXs2KNuflhd85C2dfWGrh7TA9rNg08JJtxD9ObqgxrXODgjQHjgnh97W9YPEbQ
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<script src="/assets/javascripts/applications/custom/project.js"></script>
+      </article>
+    </main>
+      <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create',
+            'UA-67152800-6',
+            'auto', {
+              userId: '11468'
+            }
+          );
+
+        ga('send', 'pageview');
+
+        $(document).ready(function() {
+          ga(function(tracker) {
+            var clientId = tracker.get('clientId');
+            $('.ga-client-id').val(clientId);
+          });
+        });
+      </script>
+      
+        <div id="clippyAssistant"   data-id="11468"
+                            data-firstname="Moussa"
+                            data-batch-number="C#27"
+                            data-lastname="Elisoltanov"
+                            data-slack-id="U08URBZEABW"
+                            data-is-staff="false"
+                            data-location="Holberton Toulouse, France"
+                            data-project-id="3104"
+                            data-location-white-label="false"></div>
+<script type="module" src="https://clippy.hbtn.io/static/client/js/clippy/app.js"></script>
+</body>
+</html>
