@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This module defines abstract Shape, Rectangle, and Circle classes,
 and a duck typing function.
