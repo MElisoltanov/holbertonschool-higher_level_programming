@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+    <title>Project: Python - Serialization | Holberton Toulouse, France Intranet</title>
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <link rel="stylesheet" href="/assets/application-7eb9b1e48427cd1bd28dbc513b5724dbd9fef87b6f1da03bb757f217b94f7ded.css" media="all" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <meta name="action-cable-url" content="/cable" />
+      <script src="/assets/application-33e17c466b9e27fd7dde69778ca6d985c105abd0ac768b9d9e8f28e537f96cab.js"></script>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="eG-OlCLoVNN9WkYBmA6HY7igLHewKUCFh1g3gazPSK9Hqgf87QXJXT_soP5BETeKikm3XegJ5oG-wBvQbxmFXg" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <!-- Select2 -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+      <!-- ChatBot -->
+        <link rel="stylesheet" href="https://clippy.hbtn.io/static/client/css/all.min.css">
+        <script src="https://clippy.hbtn.io/static/client/js/all.min.js"></script>
+      <!-- intro.js for interactive onboarding -->
+        <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css" media="screen" />
+      <!-- React -->
+      <script src="/packs/js/application-a11dd345dbcdb51e5094.js"></script>
+      <link rel="stylesheet" href="/packs/css/application-67dc439c.css" media="screen" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="
+    signed_in
+    env_production
+    
+    "
+    translate="no"
+    class="notranslate"
+    data-theme-suffix=""
+    data-checker-special-theme="">
+      <input type="hidden" id="hbtn-slack-url" value="https://holberton-school-org.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Help">
+      <a target="_blank" href="https://students-support.hbtn.io/hc">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-info-circle "></i>
+        </div>
+        <div class="visible-xs">Help</div>
+</a>    </li>
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Projects" id="sidebar-current-projects-item">
+      <a href="/projects/current">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-code-fork "></i>
+        </div>
+        <div class="visible-xs">Projects</div>
+</a>    </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="My reports">
+        <a href="/users/my_reports">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-sticky-note-o "></i>
+          </div>
+          <div class="visible-xs">My reports</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make">
+        <a href="/corrections/to_review">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-check "></i>
+          </div>
+          <div class="visible-xs">QA Reviews I can make</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Mock interviews">
+        <a href="/dashboards/my_current_reefineries">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-commenting-o "></i>
+          </div>
+          <div class="visible-xs">Mock interviews</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes">
+        <a href="/dashboards/my_current_evaluation_quizzes">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-question "></i>
+          </div>
+          <div class="visible-xs">Evaluation quizzes</div>
+</a>      </li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Concepts" id="sidebar-concepts-item">
+      <a href="/concepts">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-file-text "></i>
+        </div>
+        <div class="visible-xs">Concepts</div>
+</a>    </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers">
+        <a href="/servers">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-server "></i>
+          </div>
+          <div class="visible-xs">Servers</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Sandboxes" id="sidebar-dashboards-my-containers">
+        <a href="/user_sandboxes">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-terminal "></i>
+          </div>
+          <div class="visible-xs">Sandboxes</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Tools">
+        <a href="/dashboards/my_tools">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-wrench "></i>
+          </div>
+          <div class="visible-xs">Tools</div>
+</a>      </li>
+
+      <hr title="My campus">
+
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers">
+          <a href="/users/peers">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-users "></i>
+            </div>
+            <div class="visible-xs">Peers</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain's Logs">
+          <a href="/dashboards/my_captain_log">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-book "></i>
+            </div>
+            <div class="visible-xs">Captain's Logs</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Officers">
+          <a href="/dashboards/my_officers">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-building "></i>
+            </div>
+            <div class="visible-xs">Officers</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Speakers of the Day">
+          <a href="/dashboards/my_speakers_of_the_day">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-microphone "></i>
+            </div>
+            <div class="visible-xs">Speakers of the Day</div>
+</a>        </li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_3452.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20251003%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20251003T070615Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=182c5e532807a9a031be3e8638101734ce6ba8726762bc60c371bfef57944aed')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Help">
+      <a target="_blank" href="https://students-support.hbtn.io/hc">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-info-circle "></i>
+        </div>
+        <div class="visible-xs">Help</div>
+</a>    </li>
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Projects" id="sidebar-current-projects-item">
+      <a href="/projects/current">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-code-fork "></i>
+        </div>
+        <div class="visible-xs">Projects</div>
+</a>    </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="My reports">
+        <a href="/users/my_reports">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-sticky-note-o "></i>
+          </div>
+          <div class="visible-xs">My reports</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make">
+        <a href="/corrections/to_review">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-check "></i>
+          </div>
+          <div class="visible-xs">QA Reviews I can make</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Mock interviews">
+        <a href="/dashboards/my_current_reefineries">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-commenting-o "></i>
+          </div>
+          <div class="visible-xs">Mock interviews</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes">
+        <a href="/dashboards/my_current_evaluation_quizzes">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-question "></i>
+          </div>
+          <div class="visible-xs">Evaluation quizzes</div>
+</a>      </li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Concepts" id="sidebar-concepts-item">
+      <a href="/concepts">
+        <div class="icon">
+          <i aria-hidden="true" class="fa fa-file-text "></i>
+        </div>
+        <div class="visible-xs">Concepts</div>
+</a>    </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers">
+        <a href="/servers">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-server "></i>
+          </div>
+          <div class="visible-xs">Servers</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Sandboxes" id="sidebar-dashboards-my-containers">
+        <a href="/user_sandboxes">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-terminal "></i>
+          </div>
+          <div class="visible-xs">Sandboxes</div>
+</a>      </li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Tools">
+        <a href="/dashboards/my_tools">
+          <div class="icon">
+            <i aria-hidden="true" class="fa fa-wrench "></i>
+          </div>
+          <div class="visible-xs">Tools</div>
+</a>      </li>
+
+      <hr title="My campus">
+
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers">
+          <a href="/users/peers">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-users "></i>
+            </div>
+            <div class="visible-xs">Peers</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain's Logs">
+          <a href="/dashboards/my_captain_log">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-book "></i>
+            </div>
+            <div class="visible-xs">Captain's Logs</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Officers">
+          <a href="/dashboards/my_officers">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-building "></i>
+            </div>
+            <div class="visible-xs">Officers</div>
+</a>        </li>
+        <li data-container="body" data-placement="right" data-toggle="tooltip" title="Speakers of the Day">
+          <a href="/dashboards/my_speakers_of_the_day">
+            <div class="icon">
+              <i aria-hidden="true" class="fa fa-microphone "></i>
+            </div>
+            <div class="visible-xs">Speakers of the Day</div>
+</a>        </li>
+
+
+<hr class="visible-xs">
+
+<li>
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Slack">
+      <a target="_blank" href="https://holberton-school-org.slack.com">
+        <div class="image slack">
+          <div class="inner"></div>
+        </div>
+        <div class="visible-xs">Slack</div>
+</a>    </div>
+
+    <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="modal"
+      data-target="#search-modal"
+      title="Search">
+      <a href="#">
+          <div class="icon" data-toggle="tooltip" data-placement="right" data-container="body" title="Search">
+            <i aria-hidden="true" class="fa fa-search "></i>
+          </div>
+        <div class="visible-xs">Search</div>
+</a>    </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.eu-west-3.amazonaws.com/hbtn.intranet/users/photos/000/011/468/thumb/IMG_3452.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20251003%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20251003T070615Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=182c5e532807a9a031be3e8638101734ce6ba8726762bc60c371bfef57944aed')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+    <main>
+      <div id="layout-bars">
+        <div class="px-5 py-3" id="student-switch-curriculum">
+  <div class="dropdown d-flex flex-column gap-1">
+    <span class="fs-small text-muted">Curriculum</span>
+    <div aria-haspopup="true" aria-expanded="false" class="align-items-center d-flex gap-3" data-toggle="dropdown" id="student-switch-curriculum-dropdown" role="button">
+      <div class="d-flex flex-column" style="line-height: 16px">
+        <span class="fs-4 fw-600">
+            [C#27]
+          Foundations v2.1 - Part 2
+        </span>
+        <span class="fs-small text-muted">
+          Average: <span class="fw-500">93.5%</span>
+        </span>
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <span style="margin-bottom: -4px">
+          <i aria-hidden="true" class="fa fa-angle-up  fa-fw"></i>
+        </span>
+        <span style="margin-top: -4px">
+          <i aria-hidden="true" class="fa fa-angle-down  fa-fw"></i>
+        </span>
+      </div>
+    </div>
+    <ul aria-labelledby="student-switch-curriculum-dropdown" class="dropdown-menu fs-5">
+        <li>
+          <a class="" href="/curriculums/526/observe/69530">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 1
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">92.88%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/441/observe/69815">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  IBM Certificates - France
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">100.0%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/392/observe/83721">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  HBnB v2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/502/observe/83936">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  Foundations v2.1 - Part 2
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">93.5%
+                          </span>
+                </span>
+              </div>
+                <span class="fw-600 text-info" style="margin-left: 42px">
+                  <i aria-hidden="true" class="fa fa-check "></i>
+                </span>
+            </div>
+</a>        </li>
+        <li>
+          <a class="" href="/curriculums/423/observe/84098">
+            <div class="align-items-center d-flex py-2">
+              <div class="d-flex flex-column" style="line-height: 16px">
+                <span class="fs-4 fw-500">
+                    [C#27]
+                  RNCP 5 - Parcours de préparation
+                </span>
+                <span class="text-muted">
+                  Average: <span class="fw-500">%
+                          </span>
+                </span>
+              </div>
+            </div>
+</a>        </li>
+    </ul>
+  </div>
+</div>
+
+        
+        
+            <div id="captains_log_alert">
+        <a href="/captain_logs/261334/edit">
+            <div>
+                You have a captain's log due before 2025-10-05 (in 2 days)! Log it now!
+            </div>
+</a>    </div>
+
+      </div>
+      <article class="pending_logs">
+        
+<div class="project row container-max">
+
+    <div class="sm-gap">
+    <div data-react-class="projects/ProjectHeader" data-react-props="{&quot;metadata&quot;:{&quot;level&quot;:&quot;Novice&quot;,&quot;author&quot;:&quot;Javier Valenzani&quot;,&quot;weight&quot;:1,&quot;migrated_to_sasheck&quot;:true,&quot;task_level_review_type&quot;:&quot;Your score will be updated as you progress.&quot;,&quot;correction&quot;:{&quot;released&quot;:false,&quot;requires_manual_correction&quot;:false}},&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3110,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Serialization&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:1},&quot;slackLink&quot;:null,&quot;tags&quot;:[],&quot;videoRoomLink&quot;:null}" data-react-cache-id="projects/ProjectHeader-0"></div>
+  </div>
+
+
+  <div id="project_id" class="d-none" data-project-id="3110"></div>
+
+
+
+    <div>
+      <ul class="nav nav-pills nav-justified" role="tablist">
+          <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+      </ul>
+      <div class="tab-content mt-4">
+        <div role="tabpanel" class="tab-pane active" id="description">
+              <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+        <em>For this project, we expect you to look at these concepts:</em>
+      </p>
+
+      <ul>
+          <li>
+            <a target="_blank" href="/concepts/1190">OOP - Marshaling and Serialization</a>
+          </li>
+          <li>
+            <a target="_blank" href="/concepts/1191">C - Marshaling and Byte Order</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+          <div class="panel panel-default position-relative" id="project-description">
+  <a id="btn-scroll-to-tasks" href="#" class="btn btn-primary fixed-button hidden-xs">
+    Go to tasks <i class="ml-1 fa fa-arrow-down"></i>
+  </a>
+  <div class="panel-body text-justify">
+    <h2>Python - Serialization</h2>
+
+<h3>Introduction:</h3>
+
+<p>Welcome to our exploration of marshaling and serialization, two fundamental concepts in computer science that enable the efficient storage and transmission of data. In this programming project, you will delve deep into how data can be transformed and communicated between different parts of a system, or even across different systems. This project is designed to enhance your understanding and practical skills in handling data in real-world applications.</p>
+
+<h4>What is Marshaling?</h4>
+
+<p>Marshaling is the process of transforming memory objects into a format that can be stored or transmitted over a network. It involves packaging complex objects and their attributes into a simpler, often binary, format. This is crucial in scenarios such as remote procedure calls, where objects need to be represented in a standard format across different computing platforms.</p>
+
+<h4>What is Serialization?</h4>
+
+<p>Serialization, closely related to marshaling, specifically involves converting data structures or object states into a format that can be easily saved to a file or sent over a network. The main goal of serialization is to preserve the state of an object, so it can be recreated in an identical state elsewhere. This becomes essential in developing applications that require data persistence, distributed computing, and data sharing between different software components.</p>
+
+<h3>Learning Objectives:</h3>
+
+<ul>
+<li>Articulate the differences and similarities between marshaling and serialization.</li>
+<li>Implement serialization in a practical programming task.</li>
+<li>Understand how serialized data can be used in web applications, databases, and network communications.</li>
+<li>Evaluate the performance implications of different serialization formats, like JSON, XML, and binary formats.</li>
+</ul>
+
+<h3>Resources:</h3>
+
+<ul>
+<li><a href="/rltoken/dCh_kqSXRNy5zjTznUki6w" title="Real Python Serialization" target="_blank">Real Python Serialization</a></li>
+<li><a href="/rltoken/OD6iwbpQ_i9HPoAGXJEGLQ" title="Real Python: Working With JSON Data in Python" target="_blank">Real Python: Working With JSON Data in Python</a></li>
+<li><a href="/rltoken/IibAgnq4_yiGI9w0uqIxxw" title="Python&#39;s pickle documentation" target="_blank">Python&rsquo;s pickle documentation</a></li>
+<li><a href="/rltoken/8Kk_654pW2ZQPuiRNgWGCA" title="Corey Schafer on Pickle" target="_blank">Corey Schafer on Pickle</a></li>
+<li><a href="/rltoken/ZSsuXXF6b30nGMDUveJYkw" title="CSV to JSON in Python" target="_blank">CSV to JSON in Python</a></li>
+<li><a href="/rltoken/fvfT2Y6UVND9sfIgzqIe4w" title="Python XML ElementTree Guide" target="_blank">Python XML ElementTree Guide</a></li>
+<li><a href="/rltoken/F-DQ6YzeR9vV0QWWhlOpFg" title="Socket Programming Guide" target="_blank">Socket Programming Guide</a></li>
+</ul>
+
+<p>This project will equip you with the skills needed to manipulate and manage data effectively, preparing you for more advanced topics in computer science and software development. Get ready to build a solid foundation in data handling that will support your future projects and career in the technology sector.</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+
+        <h2 id="task-container" class="gap">Tasks</h2>
+  
+  <div class="col-sm-12 col-md-12 col-lg-8 xol-xl-9">
+      <div data-role="task28746" data-position="1" id="task-num-0">
+        <div class="panel panel-default task-card " id="task-28746">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. Basic Serialization
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Create a basic serialization module that adds the functionality to serialize a Python dictionary to a JSON file and deserialize the JSON file to recreate the Python Dictionary.</p>
+
+<h2>Instructions:</h2>
+
+<p>Write a Python module named <code>task_00_basic_serialization.py</code> with the following functions:</p>
+
+<pre><code class="python">def serialize_and_save_to_file(data, filename):
+    # Your code here to serialize and save data to the specified file
+    pass
+
+def load_and_deserialize(filename):
+    # Your code here to load and deserialize data from the specified file
+    pass
+</code></pre>
+
+<p>The function <code>serialize_and_save_to_file</code> take 2 parameters:</p>
+
+<ul>
+<li><code>data</code>: A Python Dictionary with data</li>
+<li><code>filename</code>: The filename of the output JSON file.
+If the output file already exists it should be replaced.</li>
+</ul>
+
+<p>The function <code>load_and_deserialize</code> take 1 <code>parameters</code>:</p>
+
+<ul>
+<li><code>filename</code>: The filename of the input JSON file
+This function returns a Python Dictionary with the deseialized JSON data from the file.</li>
+</ul>
+
+<h3>Execution Output Example:</h3>
+
+<pre><code class="python">#!/usr/bin/env python3
+from task_00_basic_serialization import load_and_deserialize, serialize_and_save_to_file
+
+# Sample data to be serialized
+data_to_serialize = {
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;age&quot;: 30,
+    &quot;city&quot;: &quot;New York&quot;
+}
+
+# Serialize the data to JSON and save it to a file
+serialize_and_save_to_file(data_to_serialize, &#39;data.json&#39;)
+
+# Output: The data has been serialized and saved to &#39;data.json&#39;
+print(&quot;Data serialized and saved to &#39;data.json&#39;.&quot;)
+
+# Load and deserialize data from &#39;data.json&#39;
+deserialized_data = load_and_deserialize(&#39;data.json&#39;)
+
+# Output: The deserialized data
+print(&quot;Deserialized Data:&quot;)
+print(deserialized_data)
+</code></pre>
+
+<pre><code class="bash">Data serialized and saved to &#39;data.json&#39;.
+Deserialized Data:
+{&#39;name&#39;: &#39;John Doe&#39;, &#39;age&#39;: 30, &#39;city&#39;: &#39;New York&#39;}
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-serialization</code></li>
+            <li>File: <code>task_00_basic_serialization.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28746" data-batch-id="1063" data-toggle="modal" data-target="#task-28746-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28746-users-done-modal" data-task-id="28746" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "0. Basic Serialization"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28746-score-info-score">0</span>/5
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28747" data-position="2" id="task-num-1">
+        <div class="panel panel-default task-card " id="task-28747">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. Pickling Custom Classes
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Learn how to serialize and deserialize custom Python objects using the <code>pickle</code> module.</p>
+
+<h2>Instructions:</h2>
+
+<p>1 - Create a custom Python class named <code>CustomObject</code>. This class should have the following attributes:</p>
+
+<ul>
+<li><code>name</code> (a string)</li>
+<li><code>age</code> (an integer)</li>
+<li><code>is_student</code> (a boolean)</li>
+</ul>
+
+<p>Additionally, the class should have a method <code>display</code> method to print out the object&rsquo;s attributes with the following format:</p>
+
+<pre><code>Name: John
+Age: 25
+Is Student: True
+</code></pre>
+
+<p>2 - Implement two methods within this class:</p>
+
+<ul>
+<li><code>serialize(self, filename)</code>: This method will take a filename as its parameter. Using the <code>pickle</code> module, it will serialize the current instance of the object and save it to the provided filename.</li>
+<li><code>@classmethod</code> 
+ <code>deserialize(cls, filename)</code>: This class method will take a filename as its parameter. Using the <code>pickle</code> module, it will load and return an instance of the <code>CustomObject</code> from the provided filename.</li>
+</ul>
+
+<p>3 - Save your code in a file named <code>task_01_pickle.py</code>.</p>
+
+<blockquote>
+<p>Make sure to handle possible exceptions for non-existent or malformed files. If this happens, the methods should return <code>None</code></p>
+</blockquote>
+
+<h3>Sample Test:</h3>
+
+<pre><code class="python">#!/usr/bin/env python3
+from task_01_pickle import CustomObject
+
+# Create an instance of CustomObject
+obj = CustomObject(name=&quot;John&quot;, age=25, is_student=True)
+print(&quot;Original Object:&quot;)
+obj.display()
+
+# Serialize the object
+obj.serialize(&quot;object.pkl&quot;)
+
+# Deserialize the object into a new instance
+new_obj = CustomObject.deserialize(&quot;object.pkl&quot;)
+print(&quot;\nDeserialized Object:&quot;)
+new_obj.display()
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Original Object:
+Name: John
+Age: 25
+Is Student: True
+
+Deserialized Object:
+Name: John
+Age: 25
+Is Student: True
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-serialization</code></li>
+            <li>File: <code>task_01_pickle.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28747" data-batch-id="1063" data-toggle="modal" data-target="#task-28747-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28747-users-done-modal" data-task-id="28747" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "1. Pickling Custom Classes"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28747-score-info-score">0</span>/4
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28748" data-position="3" id="task-num-2">
+        <div class="panel panel-default task-card " id="task-28748">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. Converting CSV Data to JSON Format
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>The objective of this exercise is to gain experience in reading data from one format (CSV) and converting it into another format (JSON) using serialization techniques.</p>
+
+<h2>Instructions:</h2>
+
+<ol>
+<li><p>Begin by importing the required modules:
+<code>python
+import csv
+import json
+</code></p></li>
+<li><p>Define a function named <code>convert_csv_to_json</code> that takes the CSV filename as its parameter and writes the JSON data to <code>data.json</code>.</p></li>
+<li><p>Inside this function:</p>
+
+<ul>
+<li>Use Python&rsquo;s <code>csv</code> module to open the CSV file and read the data. Use the <code>DictReader</code> class to convert each row into a dictionary.</li>
+<li>Serialize the list of dictionaries using the <code>json</code> module. </li>
+<li>Write the serialized JSON data to <code>data.json</code>.</li>
+</ul></li>
+<li><p>The function should return <code>True</code> if the conversion was successful.</p></li>
+<li><p>Handle exceptions, such as <code>file not found</code>. Function should return <code>False</code> in this case.</p></li>
+<li><p>Save your work in <code>task_02_csv.py</code>.</p></li>
+</ol>
+
+<h3>Testing Your Code:</h3>
+
+<pre><code class="python">#!/usr/bin/env python3
+from task_02_csv import convert_csv_to_json
+
+csv_file = &quot;data.csv&quot;
+convert_csv_to_json(csv_file)
+print(f&quot;Data from {csv_file} has been converted to data.json&quot;)
+</code></pre>
+
+<pre><code class="bash">$ python3 main_02_csv.py 
+Data from data.csv has been converted to data.json
+</code></pre>
+
+<hr>
+
+<h3>CSV Dataset (<code>data.csv</code>) example:</h3>
+
+<pre><code>name,age,city
+John,28,New York
+Alice,24,Los Angeles
+Bob,22,Chicago
+Eve,30,San Francisco
+</code></pre>
+
+<p>After the conversion, the resulting <code>data.json</code> file should contain:</p>
+
+<pre><code class="json">[
+    {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: &quot;28&quot;, &quot;city&quot;: &quot;New York&quot;},
+    {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: &quot;24&quot;, &quot;city&quot;: &quot;Los Angeles&quot;},
+    {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: &quot;22&quot;, &quot;city&quot;: &quot;Chicago&quot;},
+    {&quot;name&quot;: &quot;Eve&quot;, &quot;age&quot;: &quot;30&quot;, &quot;city&quot;: &quot;San Francisco&quot;}
+]
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-serialization</code></li>
+            <li>File: <code>task_02_csv.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28748" data-batch-id="1063" data-toggle="modal" data-target="#task-28748-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28748-users-done-modal" data-task-id="28748" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "2. Converting CSV Data to JSON Format"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28748-score-info-score">0</span>/2
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+      <div data-role="task28749" data-position="4" id="task-num-3">
+        <div class="panel panel-default task-card " id="task-28749">
+  <span id="user_id" data-id="11468"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. Serializing and Deserializing with XML
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="11468"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>In this exercise we&rsquo;ll explore serialization and deserialization using XML as an alternative format to JSON.</p>
+
+<h2>Instructions:</h2>
+
+<ol>
+<li>Begin by importing the required modules. You can use the <code>xml.etree.ElementTree</code> module which is a part of Python&rsquo;s standard library for XML processing:</li>
+</ol>
+
+<pre><code class="python">   import xml.etree.ElementTree as ET
+</code></pre>
+
+<ol>
+<li>Define two main functions:</li>
+</ol>
+
+<ul>
+<li><p><code>serialize_to_xml(dictionary, filename)</code>: This will take a Python dictionary and a filename as parameters. It should serialize the dictionary into XML and save it to the given filename.</p></li>
+<li><p><code>deserialize_from_xml(filename)</code>: This will take a filename as its parameter, read the XML data from that file, and return a deserialized Python dictionary.</p></li>
+</ul>
+
+<ol>
+<li>For <code>serialize_to_xml</code>:</li>
+</ol>
+
+<ul>
+<li>Create a root element, e.g., <code>&lt;data&gt;</code>.</li>
+<li>Iterate through the dictionary items and add them as child elements to the root.</li>
+<li>Write the XML tree to the provided filename using the <code>ET.ElementTree</code> class.</li>
+</ul>
+
+<ol>
+<li>For <code>deserialize_from_xml</code>:</li>
+</ol>
+
+<ul>
+<li>Parse the XML file using <code>ET.parse</code>.</li>
+<li>Navigate through the XML elements to reconstruct the dictionary.</li>
+<li>Return the constructed dictionary.</li>
+</ul>
+
+<ol>
+<li><p>Be cautious about data types. XML doesn&rsquo;t differentiate between numbers and strings, etc., like Python does. You might need to manage type conversions.</p></li>
+<li><p>Save your work in <code>task_03_xml.py</code>.</p></li>
+</ol>
+
+<h3>Testing Your Code:</h3>
+
+<pre><code class="python">#!/usr/bin/env python3
+from task_03_xml import serialize_to_xml, deserialize_from_xml
+
+def main():
+    sample_dict = {
+        &#39;name&#39;: &#39;John&#39;,
+        &#39;age&#39;: &#39;28&#39;,
+        &#39;city&#39;: &#39;New York&#39;
+    }
+
+    xml_file = &quot;data.xml&quot;
+    serialize_to_xml(sample_dict, xml_file)
+    print(f&quot;Dictionary serialized to {xml_file}&quot;)
+
+    deserialized_data = deserialize_from_xml(xml_file)
+    print(&quot;\nDeserialized Data:&quot;)
+    print(deserialized_data)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+
+<h3>Output:</h3>
+
+<pre><code>Dictionary serialized to data.xml
+
+Deserialized Data:
+{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: &#39;28&#39;, &#39;city&#39;: &#39;New York&#39;}
+</code></pre>
+
+<p>data.xml</p>
+
+<pre><code class="xml">&lt;data&gt;
+    &lt;name&gt;John&lt;/name&gt;
+    &lt;age&gt;28&lt;/age&gt;
+    &lt;city&gt;New York&lt;/city&gt;
+&lt;/data&gt;
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Task Files -->
+
+    <!-- Technical information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>holbertonschool-higher_level_programming</code></li>
+            <li>Directory: <code>python-serialization</code></li>
+            <li>File: <code>task_03_xml.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="28749" data-batch-id="1063" data-toggle="modal" data-target="#task-28749-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-28749-users-done-modal" data-task-id="28749" data-batch-id="1063">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Students who are done with "3. Serializing and Deserializing with XML"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+        <div class="fs-4 text-right">
+            <strong class="text-primary">
+              <span id="task-28749-score-info-score">0</span>/3
+            </strong>
+            <span class="text-muted">pts</span>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<script>
+function toggleTaskFilePreview(fileId) {
+  const previewDiv = document.getElementById('task-preview-' + fileId);
+  const toggleButton = document.getElementById('task-preview-toggle-' + fileId);
+  
+  if (previewDiv.style.display === 'none') {
+    previewDiv.style.display = 'block';
+    toggleButton.textContent = 'Hide Preview';
+  } else {
+    previewDiv.style.display = 'none';
+    toggleButton.textContent = 'Show Preview';
+  }
+}
+</script>
+
+      </div>
+
+    <p class="mb-4">
+      <a class="btn btn-primary btn-block" data-confirm="Are you sure? Make sure you focused on the mandatory tasks first" href="/projects/3110/unlock_optionals">Done with the mandatory tasks? Unlock 1 advanced task now!</a>
+    </p>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Input/Output" class="btn btn-primary" role="button" href="/projects/2182">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517830/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=-g87p2bdCMkmnvX-MnGrK6gEkZqqiq8P4DhHAjWDS0PFyrLPqTCVR2QoEwHrbhvCmu0KsPKqCQvZoGtT9lWGsg
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-sm-12 col-md-12 hidden-lg">
+        <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;line&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517830/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517830/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;bNICT2v67HQRlKEFzuvQRWzs6TlFfA2SGT8QjaLj7xdTF4snpBdx-lMiR_oX9GCsXgVyEx1cq5YgpzzcYTUi5g&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: RESTful API&quot;,&quot;uri&quot;:&quot;/projects/3111&quot;},&quot;fetchURI&quot;:&quot;/projects/3110/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:28746,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28747,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:4,&quot;score&quot;:0}},{&quot;id&quot;:28748,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:2,&quot;score&quot;:0}},{&quot;id&quot;:28749,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3110,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Serialization&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:1},&quot;skipURI&quot;:&quot;/corrections/1517830/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+    </div>
+
+  <div class="col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md sticky-nav">
+          <div data-react-class="projects/ProjectReview" data-react-props="{&quot;style&quot;:&quot;column&quot;,&quot;correction&quot;:{&quot;statusURI&quot;:&quot;/corrections/1517830/status_self_paced.json&quot;,&quot;startReviewURI&quot;:&quot;/corrections/1517830/start_auto_review_self_paced.json&quot;},&quot;csrfToken&quot;:&quot;PkXqMGQ754z-MiqiZLr22cY16cVuoc41N9d3TGDfaAYBgGNYq9Z6AryEzF29pUYw9Nxy7zaBaDEOT1sdowml9w&quot;,&quot;nextProject&quot;:{&quot;details&quot;:{&quot;curriculum_completed&quot;:false,&quot;message&quot;:&quot;Next project: RESTful API&quot;,&quot;uri&quot;:&quot;/projects/3111&quot;},&quot;fetchURI&quot;:&quot;/projects/3110/next&quot;},&quot;pollingInterval&quot;:10000,&quot;progress&quot;:{&quot;auto_review&quot;:{&quot;can_execute&quot;:true,&quot;completion&quot;:{&quot;count&quot;:0,&quot;is_completed&quot;:false,&quot;percentage&quot;:0.0},&quot;inability_to_execute_reason&quot;:null},&quot;tasks&quot;:[{&quot;id&quot;:28746,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:5,&quot;score&quot;:0}},{&quot;id&quot;:28747,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:4,&quot;score&quot;:0}},{&quot;id&quot;:28748,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:2,&quot;score&quot;:0}},{&quot;id&quot;:28749,&quot;progress_score&quot;:{&quot;progress&quot;:0.0,&quot;score&quot;:0.0},&quot;score_info&quot;:{&quot;passed&quot;:false,&quot;points&quot;:3,&quot;score&quot;:0}}],&quot;summary&quot;:{&quot;completion&quot;:0.0,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null}},&quot;can_skip&quot;:true,&quot;can_start_peer_review&quot;:false},&quot;peerReview&quot;:null,&quot;project&quot;:{&quot;completion&quot;:0.0,&quot;id&quot;:3110,&quot;index&quot;:0,&quot;isAccessible&quot;:true,&quot;isOptional&quot;:false,&quot;imagePath&quot;:&quot;/assets/pathway/003_color-0c5b38973bfe29fff8dd86f65a213ea2d2499a7d0d9e4549f440c50dc84c9618.png&quot;,&quot;name&quot;:&quot;Python - Serialization&quot;,&quot;score&quot;:{&quot;mandatory&quot;:null,&quot;optional&quot;:null},&quot;tasksCount&quot;:1},&quot;skipURI&quot;:&quot;/corrections/1517830/skip&quot;,&quot;taskLevelReviewTypeHumanized&quot;:&quot;Your score will be updated as you progress.&quot;}" data-react-cache-id="projects/ProjectReview-0"></div>
+
+
+    <div class="panel panel-default task-card " id="task-18584">
+      <span id="user_id" data-id="2303"></span>
+      <div class="panel-heading panel-heading-actions">
+        <h3 class="panel-title">
+          Tasks list
+        </h3>
+      </div>
+      <div class="panel-body task-list">
+          <ul class="nav nav-pills nav-justified" role="tablist">
+              <li class="active"><a href="#mandatory" role="tab" data-toggle="tab">Mandatory</a></li>
+              <li><a href="#advanced" role="tab" data-toggle="tab">Advanced</a></li>
+          </ul>
+          <div class="tab-content mt-4">
+            <div role="tabpanel" class="tab-pane active" id="mandatory">
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="0" id="heading-0">
+                    <div class="task-title-list">0. <code>Basic Serialization</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28746'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="1" id="heading-1">
+                    <div class="task-title-list">1. <code>Pickling Custom Classes</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28747'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="2" id="heading-2">
+                    <div class="task-title-list">2. <code>Converting CSV Data to JSON Format</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28748'></strong>
+                  </div>
+                  <div class="task-button d-flex align-center justify-content-between" role="button" data-task-index="3" id="heading-3">
+                    <div class="task-title-list">3. <code>Serializing and Deserializing with XML</code></div>
+                    <strong class='task_progress_score text-primary ml-2' data-task-id='28749'></strong>
+                  </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="advanced">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="/assets/javascripts/application/custom/project_tasks.js"></script>
+
+
+      
+        <div class="modal fade" id="sandboxes-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandboxes</h4></div><div class="modal-body"><div data-react-class="user_sandboxes/Sandboxes" data-react-props="{&quot;images&quot;:[{&quot;id&quot;:130,&quot;name&quot;:&quot;Ubuntu 22.04 - Java&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:17,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;South America (São Paulo)&quot;},{&quot;id&quot;:14,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Europe (Paris)&quot;},{&quot;id&quot;:18,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Asia Pacific (Sydney)&quot;},{&quot;id&quot;:16,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;US East (N. Virginia)\t&quot;},{&quot;id&quot;:128,&quot;name&quot;:&quot;Ubuntu 22.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;},{&quot;id&quot;:129,&quot;name&quot;:&quot;Ubuntu 18.04&quot;,&quot;aws_region&quot;:&quot;Middle East (UAE)&quot;}],&quot;sandboxesUri&quot;:&quot;/user_sandboxes&quot;,&quot;csrfToken&quot;:&quot;oR9XepujOOd-QmVvF6LJ8LrCw1KLj5l3tOSYfzLMlaqe2t4SVE6laTz0g5DOvXkZiCtYeNOvP3ONfLQu8RpYWw&quot;,&quot;maxNumberOfContainers&quot;:2}" data-react-cache-id="user_sandboxes/Sandboxes-0"></div></div></div></div></div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="d-flex justify-content-around">
+              <div>
+                <a data-toggle="tooltip" title="Python - Input/Output" class="btn btn-primary" role="button" href="/projects/2182">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Previous project
+</a>              </div>
+              <form action=/corrections/1517830/skip method="post">
+                <input
+                  name="authenticity_token"
+                  type="hidden"
+                  value=PDpBSL5VsS59YNqUTnXAVgKgKTP58Be1OUJ4nF24RbkD_8ggcbgsoD_WPGuXanC_MEmyGaHQsbEA2lTNnm6ISA
+                />
+                <button class="btn btn-warning" type="submit">
+                  Next project <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<script src="/assets/javascripts/applications/custom/project.js"></script>
+      </article>
+    </main>
+      <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create',
+            'UA-67152800-6',
+            'auto', {
+              userId: '11468'
+            }
+          );
+
+        ga('send', 'pageview');
+
+        $(document).ready(function() {
+          ga(function(tracker) {
+            var clientId = tracker.get('clientId');
+            $('.ga-client-id').val(clientId);
+          });
+        });
+      </script>
+      
+        <div id="clippyAssistant"   data-id="11468"
+                            data-firstname="Moussa"
+                            data-batch-number="C#27"
+                            data-lastname="Elisoltanov"
+                            data-slack-id="U08URBZEABW"
+                            data-is-staff="false"
+                            data-location="Holberton Toulouse, France"
+                            data-project-id="3110"
+                            data-location-white-label="false"></div>
+<script type="module" src="https://clippy.hbtn.io/static/client/js/clippy/app.js"></script>
+</body>
+</html>
