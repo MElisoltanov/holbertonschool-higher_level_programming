@@ -1,4 +1,25 @@
-restful-api/venv/
+# Virtual environments
 venv/
-*.pyc
+**/venv/
+.env
+.venv/
+
+# Byte-compiled / cache
 __pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+
+# distribution / build
+dist/
+build/
+*.egg-info/
